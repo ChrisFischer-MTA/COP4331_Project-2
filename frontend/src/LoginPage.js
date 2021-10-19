@@ -1,13 +1,12 @@
 import React from 'react';
-import PageTitle from '../components/PageTitle';
-import Login from '../components/Login';
-import background from "./img/bkg.png";
+import PageTitle from './PageTitle';
+import Login from './Login';
 
 const LoginPage = () =>
 {
     return (
         <div style={{
-            backgroundImage: `url(${background})`,
+            backgroundImage: `url(../imgs/bkn.png)`,
             backgroundSize: "cover",
             height: "100vh"
         }}>
