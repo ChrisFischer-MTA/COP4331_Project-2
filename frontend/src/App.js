@@ -1,4 +1,6 @@
 //import '../styles/App.css';
+import React from 'react';
+import './App.css';
 import LoginPage from './LoginPage.js';
 import NavBar from './NavBar.js';
 
