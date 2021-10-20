@@ -15,7 +15,8 @@ function Login()
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            height : "90vh"
+            height: "90vh",
+            color: "red"
         }}>
             <form onSubmit={doLogin}>
                 <span id="inner-title">PLEASE LOG IN</span><br />
