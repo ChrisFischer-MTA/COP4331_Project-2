@@ -1,7 +1,7 @@
 import React from 'react';
-import PageTitle from '../components/PageTitle';
-import Register from '../components/Register';
-import background from "./img/bkg.png";
+import PageTitle from './PageTitle';
+import Register from './Register';
+import background from "./imgs/bkg.png";
 
 const RegPage = () => {
     return (

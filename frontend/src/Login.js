@@ -1,4 +1,5 @@
 import React from 'react';
+import RegPage from './RegPage.js';
 
 function Login()
 {
@@ -9,6 +10,7 @@ function Login()
         event.preventDefault();
         alert('User name is ' +loginName +' and password is ' +loginPassword);
     };
+
 
     return (
         <div id="loginDiv" style={{
@@ -23,6 +25,8 @@ function Login()
                 <input type="text" id="loginName" placeholder="Username" /><br />
                 <input type="password" id="loginPassword" placeholder="Password" /><br />
                 <input type="submit" id="loginButton" class="buttons" value="Login"
+                    onClick={doLogin} />
+                <input type="submit" id="regButton" class="buttons" value="Register"
                     onClick={doLogin} />
             </form>
             <span id="loginResult"></span>

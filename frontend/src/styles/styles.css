@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@300;400&display=swap');
+
+:root {
+	--white: #fdf7fa;
+	--border-color: ;
+	--background-color: #a8dcd9;
+
+	--prm-font-color: #;
+	--sec-font-color: #;
+
+	--hglt-color: #788bff;
+	--button-color: #5465ff;
+
+}
+
+body {
+	font-family: 'Noto Sans Mono', monospace;
+	background: var(--background-color);
+
+}
+
+.navbar {
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+	width: 100vw;
+	height: 6vh;
+	background: blue;
+	float: top;
+	text-align: center;
+	border: 1px solid black;
+}
+
+a {
+	color: var(--sec-font-color);
+	background: var(--button-color);
+	border: solid 1px var(--border-color);
+	border-radius: 30px;
+	width: 25vw;
+	padding: 5px;
+	margin: 1px;
+	font-size: 1.15em;
+	text-decoration: none
+}
+
+a:hover {
+	color: var(--white);
+	background: var(--hglt-color);
+	border: solid 1px var(--border-color);
+	border-radius: 10px;
+	transition-duration: 0.8s;
+}
+
+@media screen and (max-width: 500px) {
+	.navbar button {
+  		float: none;
+	  	display: block;
+	}
+}
