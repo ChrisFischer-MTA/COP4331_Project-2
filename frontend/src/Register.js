@@ -1,19 +1,15 @@
 import React from 'react';
 
-function Register()
-{
-    const doReg = async event =>
-    {
+function Register() {
+    const doReg = async event => {
         var regName = document.getElementById("regName").value;
         var regPassword = document.getElementById("regPassword").value;
         var confPassword = document.getElementById("confPassword").value;
         event.preventDefault();
-        if (regPassword.length > 3 && regPassword === confPassword)
-        {
+        if (regPassword.length > 3 && regPassword === confPassword) {
             alert('User name is ' + regName + ' and password is ' + regPassword);
         }
-        else
-        {
+        else {
             alert('The passwords must match and must be longer than 3 characters!');
         }
     };
