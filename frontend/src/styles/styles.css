@@ -3,19 +3,20 @@
 :root {
 	--white: #fdf7fa;
 	--border-color: ;
-	--background-color: #a8dcd9;
+	--primary-color: #f0dac5;
+	--secondary-color: #50223c;
 
 	--prm-font-color: #;
 	--sec-font-color: #;
 
-	--hglt-color: #788bff;
-	--button-color: #5465ff;
+	--hglt-color: #1c2340;
+	--button-color: #f0dac5;
 
 }
 
 body {
 	font-family: 'Noto Sans Mono', monospace;
-	background: var(--background-color);
+	background: var(--primary-color);
 
 }
 
@@ -24,11 +25,13 @@ body {
 	position: fixed;
 	top: 0;
 	width: 100vw;
-	height: 6vh;
-	background: blue;
+	height: 7vh;
+	background: var(--secondary-color);
 	float: top;
 	text-align: center;
 	border: 1px solid black;
+	display: flex;
+	align-items: flex-end;
 }
 
 a {
@@ -38,17 +41,19 @@ a {
 	border-radius: 30px;
 	width: 25vw;
 	padding: 5px;
-	margin: 1px;
+	margin: 2px;
 	font-size: 1.15em;
-	text-decoration: none
+	text-decoration: none;
+	flex: 1;
 }
 
-a:hover {
-	color: var(--white);
+a:hover, a:active {
+	color: var(--primary-color);
 	background: var(--hglt-color);
-	border: solid 1px var(--border-color);
+	border: solid 1px var(--primary-color);
 	border-radius: 10px;
 	transition-duration: 0.8s;
+	cursor: pointer;
 }
 
 @media screen and (max-width: 500px) {
