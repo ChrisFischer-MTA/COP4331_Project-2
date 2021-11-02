@@ -13,7 +13,6 @@ app.use(cors());
 app.use(bodyParser.json());
 const MongoClient = require('mongodb').MongoClient;
 const url = 'mongodb+srv://RickLeinecker:COP4331Rocks@cluster0-4pisv.mongodb.net/COP4331?retryWrites=true&w=majority';
-//const url = 'mongodb+srv://cop4331.njgcb.mongodb.net/COP4331" --username jason2992 --password WeLoveCOP4331';
 const dbName = 'app';
 const client = new MongoClient(url);
 client.connect();
