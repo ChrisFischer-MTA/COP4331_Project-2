@@ -6,18 +6,16 @@ import NavBar from './NavBar.js';
 import RegPage from './RegPage.js';
 import Table from './Table.js';
 
-/*function App() {
+function App() {
   return (
     <div className="App">
-	  <LoginPage/>
 	  <NavBar loggedIn={true}/>
 	  <Table/>
     </div>
   );
 }
 
-export default App;*/
-
+/*
 const data = [
     { name: "Anom", age: 19, gender: "Male" },
     { name: "Megha", age: 19, gender: "Female" },
@@ -54,4 +52,5 @@ function App() {
     );
 }
 
+*/
 export default App;
