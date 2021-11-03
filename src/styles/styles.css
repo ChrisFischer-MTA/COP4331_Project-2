@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@300;400&display=swap');
+
+:root {
+	--white: #fdf7fa;
+	--border-color: green;
+	--primary-color: #f0dac5;
+	--secondary-color: #50223c;
+
+	--prm-font-color: #;
+	--sec-font-color: #;
+
+	--hglt-color: #1c2340;
+	--button-color: #f0dac5;
+
+	--online-color: green;
+	--offline-color: red;
+}
+
+body {
+	font-family: 'Noto Sans Mono', monospace;
+	background: var(--primary-color);
+
+}
+
+.navbar {
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+	width: 100vw;
+	height: 7vh;
+	background: var(--secondary-color);
+	float: top;
+	text-align: center;
+	border: 1px solid black;
+	display: flex;
+	align-items: flex-end;
+}
+
+a {
+	color: var(--sec-font-color);
+	background: var(--button-color);
+	border: solid 1px var(--border-color);
+	border-radius: 30px;
+	width: 25vw;
+	padding: 5px;
+	margin: 2px;
+	font-size: 1.15em;
+	text-decoration: none;
+	flex: 1;
+}
+
+a:hover, a:active {
+	color: var(--primary-color);
+	background: var(--hglt-color);
+	border: solid 1px var(--primary-color);
+	border-radius: 10px;
+	transition-duration: 0.8s;
+	cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+	.navbar button {
+  		float: none;
+	  	display: block;
+	}
+}
+.online {
+	color: var(--online-color);
+
+}
+.offline {
+	color: var(--offline-color);
+
+}
+
+table {
+	border: 2px solid var(--border-color);
+}
+
+th {
+	border: 1.5px solid var(--border-color);
+
+}
+
+td {
+	border: 1px dotted black;
+
+}
