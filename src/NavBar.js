@@ -10,7 +10,6 @@ class NavBar extends React.Component {
 		this.loggedIn = props.loggedIn;
 		this.curTime = new Date().toLocaleString();
     	setInterval(() => {
-		console.log("hi");
       	this.setState({
        	 curTime : new Date().toLocaleString(),
      	 })

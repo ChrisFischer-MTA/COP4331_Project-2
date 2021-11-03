@@ -2,6 +2,9 @@ import React from 'react';
 import './styles/styles.css';
 
 class Table extends React.Component {
+	online = <i className="fas fa-solid fa-arrow-up online"></i>;
+	offline = <i className="fas fa-solid fa-arrow-down offline"></i>;
+
 	constructor(props) {
 		super(props);
 
@@ -9,40 +12,43 @@ class Table extends React.Component {
 
 	render() {
 		return (
-			<table>Recent Checks
+			<div>
+			<h1>Recent Checks</h1>
+			<table>
 			<tr>
 				<th>Name</th>
 				<th>Current Status</th>
 			</tr>
 			<tr>
 				<td>David</td>
-				<td><i className="fas fa-solid fa-arrow-down"></i></td>
+				<td>{this.online}</td>
 			</tr>
 			<tr>
 				<td>Paul</td>
-				<td><i className="fas fa-solid fa-arrow-down"></i></td>
+				<td>{this.offline}</td>
 			</tr>
 			<tr>
 				<td>Rich</td>
-				<td><i className="fas fa-solid fa-arrow-down"></i></td>
+				<td>{this.offline}</td>
 			</tr>
 			<tr>
 				<td>Chris</td>
-				<td><i className="fas fa-solid fa-arrow-down"></i></td>
+				<td>{this.offline}</td>
 			</tr>
 			<tr>
 				<td>Blake</td>
-				<td><i className="fas fa-solid fa-arrow-down"></i></td>
+				<td>{this.offline}</td>
 			</tr>
 			<tr>
 				<td>Aaron</td>
-				<td><i className="fas fa-solid fa-arrow-down"></i></td>
+				<td>{this.offline}</td>
 			</tr>
 			<tr>
 				<td>Chakra</td>
-				<td><i className="fas fa-solid fa-arrow-down"></i></td>
+				<td>{this.offline}</td>
 			</tr>
 			</table>
+			</div>
 
 		);
 	}

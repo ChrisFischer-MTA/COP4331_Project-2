@@ -2,7 +2,7 @@
 
 :root {
 	--white: #fdf7fa;
-	--border-color: ;
+	--border-color: green;
 	--primary-color: #f0dac5;
 	--secondary-color: #50223c;
 
@@ -12,6 +12,8 @@
 	--hglt-color: #1c2340;
 	--button-color: #f0dac5;
 
+	--online-color: green;
+	--offline-color: red;
 }
 
 body {
@@ -61,4 +63,26 @@ a:hover, a:active {
   		float: none;
 	  	display: block;
 	}
+}
+.online {
+	color: var(--online-color);
+
+}
+.offline {
+	color: var(--offline-color);
+
+}
+
+table {
+	border: 2px solid var(--border-color);
+}
+
+th {
+	border: 1.5px solid var(--border-color);
+
+}
+
+td {
+	border: 1px dotted black;
+
 }
