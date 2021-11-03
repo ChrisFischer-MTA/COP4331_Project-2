@@ -27,7 +27,7 @@ class NavBar extends React.Component {
 				<a>{this.curTime}</a>
 				<a>{this.loggedIn ? this.out_string: this.in_string}</a>
 			</div>
-		)
+		);
 	}
 }
 
