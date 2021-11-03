@@ -8,22 +8,28 @@ class NavBar extends React.Component {
 	constructor(props) {
 		super(props);
 		this.loggedIn = props.loggedIn;
-		this.curTime = new Date().toLocaleString();
-    	setInterval(() => {
-      	this.setState({
-       	 curTime : new Date().toLocaleString(),
-     	 })
-   	 }, 1000)
+		this.state = {
+			curTime: new Date().toLocaleString()
+		}
+		//this.state.curTime = new Date().toLocaleString();
+	}
+
+	updateTime() {
+    	this.setState({
+       		curTime: new Date().toLocaleString()
+		});
+
 	}
 
 	componentDidMount() {
+    	setInterval(() => {this.updateTime()}, 1000);
   	}	
 
 	render() {
 		return (
 			<div className="navbar">
 				<a><i className="fas fa-glasses"></i> Status View</a>
-				<a>{this.curTime}</a>
+				<a>{this.state.curTime}</a>
 				<a>{this.loggedIn ? this.out_string: this.in_string}</a>
 			</div>
 		);
