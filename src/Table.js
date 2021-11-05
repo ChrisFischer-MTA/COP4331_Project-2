@@ -9,11 +9,11 @@ export default class Table extends React.Component {
 		super(props);
 		this.state = {
 			entries: [
-				{time: "empty1", arrow: false},
-				{time: "empty2", arrow: false},
-				{time: "empty3", arrow: false},
-				{time: "empty4", arrow: false},
-				{time: "empty5", arrow: false}
+				{name:"www.google.com (HTTPS)", time: new Date().toLocaleString(), arrow: false},
+				{name:"www.google.com (HTTPS)", time: new Date().toLocaleString(), arrow: false},
+				{name:"www.google.com (HTTPS)", time: new Date().toLocaleString(), arrow: false},
+				{name:"www.google.com (HTTPS)", time: new Date().toLocaleString(), arrow: false},
+				{name:"www.google.com (HTTPS)", time: new Date().toLocaleString(), arrow: false}
 			]
 		}
 	}
@@ -31,6 +31,7 @@ export default class Table extends React.Component {
 	componentDidMount() {
 		setInterval(() => {this.statusCheck()}, 120000);
 	}
+			//{this.state.entries.map((element) => {return element.name})}
 
 	render() {
 		return (
@@ -39,19 +40,15 @@ export default class Table extends React.Component {
 			<table>
 			<tr>
 				<th>Name</th>
-				<th>{this.state.entries[0].time}</th>
-				<th>{this.state.entries[1].time}</th>
-				<th>{this.state.entries[2].time}</th>
-				<th>{this.state.entries[3].time}</th>
-				<th>{this.state.entries[4].time}</th>
+				{this.state.entries.map( (element,index) => {
+					return <td>{element.time}</td>
+				})}
 			</tr>
 			<tr>
 				<td>David</td>
-				<td>{this.getArrow(this.state.entries[0].arrow)}</td>
-				<td>{this.online}</td>
-				<td>{this.online}</td>
-				<td>{this.online}</td>
-				<td>{this.online}</td>
+				{this.state.entries.map( (element,index) => {
+					return <td>{this.getArrow(element.arrow)}</td>
+				})}
 			</tr>
 			<tr>
 				<td>Paul</td>
