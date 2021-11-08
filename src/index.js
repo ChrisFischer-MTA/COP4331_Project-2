@@ -2,14 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
-import Expenses from './routes/expenses';
-import Invoices from './routes/invoices';
 import Status from './routes/Status';
+import Service from './routes/Service';
+import Team from './routes/Team';
+import RegPage from './routes/RegPage';
+import Home from './routes/Home';
+
 import App from './App';
 import NavBar from './NavBar';
 import reportWebVitals from './reportWebVitals';
-import RegPage from './routes/RegPage';
-import Home from './routes/Home';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,9 +18,9 @@ ReactDOM.render(
 		<Routes>
 			<Route path="/" element={<Home />} />
 			<Route path="/status" element={<Status />} />
+			<Route path="/service" element={<Service />} />
+			<Route path="/team" element={<Team />} />
 			<Route path="/register" element={<RegPage />} />
-			<Route path="/expenses" element={<Expenses />} />
-			<Route path="/invoices" element={<Invoices />} />
 		</Routes>
 	</BrowserRouter>
   </React.StrictMode>,
