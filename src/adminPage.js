@@ -1,12 +1,18 @@
 import React from 'react';
-import './styles/styles.css';
-import admin from './admin.js'
+import PageTitle from './PageTitle';
+import Register from './admin';
+import background from "./imgs/bkg.png";
 
-const adminPage = () =>
-{
+const adminPage = () => {
     return (
-        <div>
-            <admin/>
+        <div style={{
+            backgroundImage: `url(${background})`,
+            backgroundSize: "cover",
+            height: "100vh",
+            width: "200vh"
+        }}>
+            <PageTitle />
+            <Register />
         </div>
     );
 };
