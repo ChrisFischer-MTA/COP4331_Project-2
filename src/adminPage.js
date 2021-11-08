@@ -6,7 +6,7 @@ const adminPage = () =>
 {
     return (
         <div>
-            <admin />
+            <admin/>
         </div>
     );
 };
