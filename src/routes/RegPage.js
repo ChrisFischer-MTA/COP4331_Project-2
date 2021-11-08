@@ -1,6 +1,6 @@
 import React from 'react';
 import PageTitle from '../PageTitle';
-import Register from '../Register';
+import adminPage from '../adminPage';
 import background from "../imgs/bkg.png";
 
 const RegPage = () => {
@@ -12,7 +12,7 @@ const RegPage = () => {
             width: "200vh"
         }}>
             <PageTitle />
-            <Register />
+            <adminPage />
         </div>
     );
 };
