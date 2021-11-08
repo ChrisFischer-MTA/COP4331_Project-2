@@ -1,7 +1,8 @@
 import React from 'react';
-import './styles/styles.css';
+import NavBar from '../NavBar';
+import '../styles/styles.css';
 
-export default class Table extends React.Component {
+export default class Status extends React.Component {
 	online = <i className="fas fa-solid fa-arrow-up online"></i>;
 	offline = <i className="fas fa-solid fa-arrow-down offline"></i>;
 
@@ -35,7 +36,8 @@ export default class Table extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className="page">
+			<NavBar/>
 			<h1>Recent Checks</h1>
 			<table>
 			<tr>

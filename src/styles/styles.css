@@ -22,6 +22,16 @@ body {
 
 }
 
+#time {
+	border: solid 1px var(--border-color);
+
+}
+.page {
+	padding-top: 5vh;
+	border-radius: 30px;
+	flex: 1;
+}
+
 .navbar {
 	overflow: hidden;
 	position: fixed;
