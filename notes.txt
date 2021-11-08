@@ -1,0 +1,16 @@
+center arrows
+status of last 5, every 5 minutes
+page refreshed every 5 minutes
+checsk done every 2-5 miutes
+
+
+WHoel website:
+home page
+5 tables, 1 per page
+login
+create event (only accesible to admins)
+	admins see all pages at once?
+
+
+each entry is ip and servicce type
+
