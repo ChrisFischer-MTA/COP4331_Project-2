@@ -7,8 +7,31 @@ export default class Table extends React.Component {
 
 	constructor(props) {
 		super(props);
+		this.state = {
+			entries: [
+				{name:"www.google.com (HTTPS)", time: new Date().toLocaleString(), arrow: false},
+				{name:"www.google.com (HTTPS)", time: new Date().toLocaleString(), arrow: false},
+				{name:"www.google.com (HTTPS)", time: new Date().toLocaleString(), arrow: false},
+				{name:"www.google.com (HTTPS)", time: new Date().toLocaleString(), arrow: false},
+				{name:"www.google.com (HTTPS)", time: new Date().toLocaleString(), arrow: false}
+			]
+		}
+	}
+	
+	getArrow(bool) {
+		return bool ? this.online : this.offline;
 
 	}
+
+	statusCheck() {
+		console.log("fux this shib");
+
+	}
+
+	componentDidMount() {
+		setInterval(() => {this.statusCheck()}, 120000);
+	}
+			//{this.state.entries.map((element) => {return element.name})}
 
 	render() {
 		return (
@@ -17,28 +40,28 @@ export default class Table extends React.Component {
 			<table>
 			<tr>
 				<th>Name</th>
-				<th>Current Status</th>
-				<th>Check @ time x</th>
-				<th>Check @ time x</th>
-				<th>Check @ time x</th>
+				{this.state.entries.map( (element,index) => {
+					return <td>{element.time}</td>
+				})}
 			</tr>
 			<tr>
 				<td>David</td>
-				<td>{this.online}</td>
-				<td>{this.offline}</td>
-				<td>{this.offline}</td>
-				<td>{this.offline}</td>
+				{this.state.entries.map( (element,index) => {
+					return <td>{this.getArrow(element.arrow)}</td>
+				})}
 			</tr>
 			<tr>
 				<td>Paul</td>
 				<td>{this.offline}</td>
-				<td>{this.offline}</td>
-				<td>{this.offline}</td>
-				<td>{this.offline}</td>
+				<td>{this.online}</td>
+				<td>{this.online}</td>
+				<td>{this.online}</td>
+				<td>{this.online}</td>
 			</tr>
 			<tr>
 				<td>Rich</td>
 				<td>{this.offline}</td>
+				<td>{this.online}</td>
 				<td>{this.online}</td>
 				<td>{this.online}</td>
 				<td>{this.online}</td>
@@ -49,10 +72,12 @@ export default class Table extends React.Component {
 				<td>{this.online}</td>
 				<td>{this.online}</td>
 				<td>{this.online}</td>
+				<td>{this.online}</td>
 			</tr>
 			<tr>
 				<td>Blake</td>
 				<td>{this.offline}</td>
+				<td>{this.online}</td>
 				<td>{this.online}</td>
 				<td>{this.online}</td>
 				<td>{this.online}</td>
@@ -63,10 +88,12 @@ export default class Table extends React.Component {
 				<td>{this.online}</td>
 				<td>{this.online}</td>
 				<td>{this.online}</td>
+				<td>{this.online}</td>
 			</tr>
 			<tr>
 				<td>Victoria</td>
 				<td>{this.offline}</td>
+				<td>{this.online}</td>
 				<td>{this.online}</td>
 				<td>{this.online}</td>
 				<td>{this.online}</td>
@@ -77,4 +104,3 @@ export default class Table extends React.Component {
 		);
 	}
 }
-

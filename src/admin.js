@@ -1,8 +1,9 @@
 import React from 'react';
+import './styles/styles.css';
 
 function admin()
 {
-    const doLogin = async event =>
+    const adminButton = async event =>
     {
         var loginName = document.getElementById("loginName").value;
         var loginPassword = document.getElementById("loginPassword").value;
@@ -19,14 +20,14 @@ function admin()
             height: "90vh",
             color: "red"
         }}>
-            <form onSubmit={doLogin}>
+            <form onSubmit={adminButton}>
                 <span id="inner-title">PLEASE LOG IN</span><br />
                 <input type="text" id="loginName" placeholder="Username" /><br />
                 <input type="password" id="loginPassword" placeholder="Password" /><br />
                 <input type="submit" id="loginButton" class="buttons" value="Login"
-                    onClick={doLogin} />
+                    onClick={adminButton} />
                 <input type="submit" id="regButton" class="buttons" value="Register"
-                    onClick={doLogin} />
+                    onClick={adminButton} />
             </form>
             <span id="loginResult"></span>
         </div>
