@@ -1,12 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import '../styles/index.css';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+
+import Status from './routes/Status';
+import Service from './routes/Service';
+import Team from './routes/Team';
+import RegPage from './routes/RegPage';
+import Home from './routes/Home';
+
 import App from './App';
+import NavBar from './NavBar';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+	<BrowserRouter>
+		<Routes>
+			<Route path="/" element={<Home />} />
+			<Route path="/status" element={<Status />} />
+			<Route path="/service" element={<Service />} />
+			<Route path="/team" element={<Team />} />
+			<Route path="/register" element={<RegPage />} />
+		</Routes>
+	</BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
