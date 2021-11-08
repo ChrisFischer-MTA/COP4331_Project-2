@@ -9,9 +9,9 @@ const LoginPage = () =>
         <div style={{
             backgroundImage: `url(${background})`,
             backgroundSize: "cover",
-            height: "100vh"
+            height: "100vh",
+            width: "200vh"
         }}>
-            <PageTitle />
             <Login />
         </div>
     );

@@ -25,16 +25,16 @@ export default class Table extends React.Component {
 			<tr>
 				<td>David</td>
 				<td>{this.online}</td>
-				<td>{this.online}</td>
-				<td>{this.online}</td>
-				<td>{this.online}</td>
+				<td>{this.offline}</td>
+				<td>{this.offline}</td>
+				<td>{this.offline}</td>
 			</tr>
 			<tr>
 				<td>Paul</td>
 				<td>{this.offline}</td>
-				<td>{this.online}</td>
-				<td>{this.online}</td>
-				<td>{this.online}</td>
+				<td>{this.offline}</td>
+				<td>{this.offline}</td>
+				<td>{this.offline}</td>
 			</tr>
 			<tr>
 				<td>Rich</td>

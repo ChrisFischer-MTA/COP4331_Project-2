@@ -1,5 +1,4 @@
 import React from 'react';
-import RegPage from './RegPage.js';
 
 function Login()
 {
