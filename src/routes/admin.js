@@ -20,6 +20,18 @@ export default class Admin extends React.Component {
         {
             // API call
             // Update database with new service (Name-Protocol)
+            // Will need a prompt to ask admin if he's sure about wiping the competition
+            
+            // API call
+            // Update database with new service (Name-Protocol)
+            // Will need a prompt to ask admin if he's sure about wiping the competition
+        
+            // API call
+            // Update database with new service (Name-Protocol)
+            // Will need a prompt to ask admin if he's sure about wiping the competition
+            // API call
+            // Update database with new service (Name-Protocol)
+            // Will need a prompt to ask admin if he's sure about wiping the competition
         };
 
         return(
@@ -28,7 +40,7 @@ export default class Admin extends React.Component {
             <NavBar/>
             <form>
                 <span id = 'inner-title'>Admin Page</span><br/>
-                <input type="NumTeams" id="loginPassword" placeholder="Number of teams" /><br />
+                <input type="number" id="loginPassword" placeholder="Number of teams" /><br />
                 <input type="submit" id="TeamButton" class="buttons" value="Make Teams"
                     onClick={newTeam} /><br/><br/>
                 <input type="ServiceName" id="loginPassword" placeholder="Service Name" /><br />
