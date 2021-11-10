@@ -1,4 +1,5 @@
 import React from 'react';
+import NavBar from '../NavBar';
 
 export default class Admin extends React.Component {
     render() {
@@ -23,6 +24,8 @@ export default class Admin extends React.Component {
 
         return(
         <div>
+            <br/><br/><br/>
+            <NavBar/>
             <form>
                 <span id = 'inner-title'>Admin Page</span><br/>
                 <input type="NumTeams" id="loginPassword" placeholder="Number of teams" /><br />
