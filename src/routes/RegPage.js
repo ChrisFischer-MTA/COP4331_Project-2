@@ -1,7 +1,7 @@
 import React from 'react';
 import PageTitle from '../PageTitle';
-import adminPage from '../adminPage';
 import background from "../imgs/bkg.png";
+import admin from './admin';
 
 const RegPage = () => {
     return (
@@ -12,7 +12,7 @@ const RegPage = () => {
             width: "200vh"
         }}>
             <PageTitle />
-            <adminPage />
+            <admin/>
         </div>
     );
 };

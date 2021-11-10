@@ -7,9 +7,11 @@ import Service from './routes/Service';
 import Team from './routes/Team';
 import RegPage from './routes/RegPage';
 import Home from './routes/Home';
+import Admin from './routes/admin';
 
 import App from './App';
 import NavBar from './NavBar';
+import Login from './Login';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -21,6 +23,7 @@ ReactDOM.render(
 			<Route path="/service" element={<Service />} />
 			<Route path="/team" element={<Team />} />
 			<Route path="/register" element={<RegPage />} />
+			<Route path="/admin" element={<Admin/>} />
 		</Routes>
 	</BrowserRouter>
   </React.StrictMode>,
