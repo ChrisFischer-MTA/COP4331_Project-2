@@ -1,8 +1,11 @@
 import React from 'react';
+import {confirmAlert} from 'react-confirm-alert';
 import NavBar from '../NavBar';
 
 export default class Admin extends React.Component {
     render() {
+        
+
         const newTeam = async event =>
         {
             // API call
@@ -22,16 +25,6 @@ export default class Admin extends React.Component {
             // Update database with new service (Name-Protocol)
             // Will need a prompt to ask admin if he's sure about wiping the competition
             
-            // API call
-            // Update database with new service (Name-Protocol)
-            // Will need a prompt to ask admin if he's sure about wiping the competition
-        
-            // API call
-            // Update database with new service (Name-Protocol)
-            // Will need a prompt to ask admin if he's sure about wiping the competition
-            // API call
-            // Update database with new service (Name-Protocol)
-            // Will need a prompt to ask admin if he's sure about wiping the competition
         };
 
         return(
@@ -47,7 +40,9 @@ export default class Admin extends React.Component {
                 <input type="submit" id="ServiceButton" class="buttons" value="Make Service"
                     onClick={newService} /><br/><br/>
                 <input type="submit" id="BlankSlateButton" class="buttons" value="New Competition"
-                    onClick={blankSlate} />
+                    onClick={() => { 
+                        if (window.confirm('Are you sure you wish to delete this competition?')) 
+                        this.onCancel() } }/>
             </form>
         </div>
         );
