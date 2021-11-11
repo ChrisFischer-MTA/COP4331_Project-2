@@ -8,9 +8,11 @@ import Team from './routes/Team';
 import Thing from './routes/Thing';
 import adminPage from './routes/adminPage';
 import Home from './routes/Home';
+import Admin from './routes/admin';
 
 import App from './App';
 import NavBar from './NavBar';
+import Login from './Login';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render (
@@ -23,6 +25,8 @@ ReactDOM.render (
 			<Route path="/team" element={<Team />} />
 			<Route path="/thing" element={<Thing />} />
 			<Route path="/adminPage" element={<adminPage />} />
+			<Route path="/register" element={<RegPage />} />
+			<Route path="/admin" element={<Admin/>} />
 		</Routes>
 	</BrowserRouter>
   </React.StrictMode>,
