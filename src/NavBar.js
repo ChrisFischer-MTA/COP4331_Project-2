@@ -28,12 +28,17 @@ class NavBar extends React.Component {
 	render() {
 		return (
 			<div className="navbar">
-				<a href="/status"><i className="fas fa-glasses"></i> Status View</a>
-				<a href="/service"><i className="fas fa-glasses"></i> Service View</a>
-				<a href="/team"><i className="fas fa-glasses"></i> Team View</a>
-				<p id="time">{this.state.curTime}</p>
-				<a href="/">Home</a>
-				<a>{this.loggedIn ? this.out_string: this.in_string}</a>
+				<div className="dropdown">
+					<button className="navItem">Views</button>
+					<div className="dropdown-content">
+						<a href="/status"><i className="fas fa-glasses"></i> Status View</a>
+						<a href="/service"><i className="fas fa-glasses"></i> Service View</a>
+						<a href="/team"><i className="fas fa-glasses"></i> Team View</a>
+					</div>
+				</div>
+				<a className="navItem" href="/">Home</a>
+				<p className="navItem" id="time">{this.state.curTime}</p>
+				<a className="navItem" >{this.loggedIn ? this.out_string: this.in_string}</a>
 			</div>
 		);
 	}

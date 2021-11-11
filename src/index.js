@@ -5,14 +5,15 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Status from './routes/Status';
 import Service from './routes/Service';
 import Team from './routes/Team';
-import RegPage from './routes/RegPage';
+import Thing from './routes/Thing';
+import adminPage from './routes/adminPage';
 import Home from './routes/Home';
 
 import App from './App';
 import NavBar from './NavBar';
 import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
+ReactDOM.render (
   <React.StrictMode>
 	<BrowserRouter>
 		<Routes>
@@ -20,7 +21,8 @@ ReactDOM.render(
 			<Route path="/status" element={<Status />} />
 			<Route path="/service" element={<Service />} />
 			<Route path="/team" element={<Team />} />
-			<Route path="/register" element={<RegPage />} />
+			<Route path="/thing" element={<Thing />} />
+			<Route path="/adminPage" element={<adminPage />} />
 		</Routes>
 	</BrowserRouter>
   </React.StrictMode>,

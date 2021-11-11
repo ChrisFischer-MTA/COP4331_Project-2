@@ -14,3 +14,5 @@ create event (only accesible to admins)
 
 each entry is ip and servicce type
 
+allowable ip adress 0.0.0.0
+
