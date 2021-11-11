@@ -6,13 +6,13 @@ import Status from './routes/Status';
 import Service from './routes/Service';
 import Team from './routes/Team';
 import Thing from './routes/Thing';
-import adminPage from './routes/adminPage';
 import Home from './routes/Home';
 import Admin from './routes/admin';
+import RegPage from './routes/RegPage';
 
 import App from './App';
 import NavBar from './NavBar';
-import Login from './Login';
+import Login from './routes/Login';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render (
@@ -24,9 +24,9 @@ ReactDOM.render (
 			<Route path="/service" element={<Service />} />
 			<Route path="/team" element={<Team />} />
 			<Route path="/thing" element={<Thing />} />
-			<Route path="/adminPage" element={<adminPage />} />
 			<Route path="/register" element={<RegPage />} />
 			<Route path="/admin" element={<Admin/>} />
+			<Route path="/login" element={<Login/>} />
 		</Routes>
 	</BrowserRouter>
   </React.StrictMode>,

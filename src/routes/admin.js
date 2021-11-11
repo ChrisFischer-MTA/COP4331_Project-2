@@ -1,5 +1,5 @@
 import React from 'react';
-import {confirmAlert} from 'react-confirm-alert';
+//import {confirmAlert} from 'react-confirm-alert';
 import NavBar from '../NavBar';
 
 export default class Admin extends React.Component {
