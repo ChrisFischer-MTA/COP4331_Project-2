@@ -90,7 +90,7 @@ body {
 a {
 	color: var(--sec-font-color);
 	background: var(--button-color);
-	border: solid 1px var(--border-color);
+	border: solid 1px black;
 	border-radius: 30px;
 	width: 25vw;
 	padding: 5px;
@@ -118,6 +118,7 @@ a:hover, a:active {
 	color: var(--online-color);
 
 }
+
 .offline {
 	color: var(--offline-color);
 
@@ -129,10 +130,8 @@ table {
 
 th {
 	border: 1.5px solid var(--border-color);
-
 }
 
 td {
 	border: 1px dotted black;
-
 }

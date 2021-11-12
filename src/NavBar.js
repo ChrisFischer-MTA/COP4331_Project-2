@@ -38,7 +38,7 @@ class NavBar extends React.Component {
 				</div>
 				<a className="navItem" href="/">Home</a>
 				<p className="navItem" id="time">{this.state.curTime}</p>
-				<a className="navItem" >{this.loggedIn ? this.out_string: this.in_string}</a>
+				<a className="navItem" href="/login" >{this.loggedIn ? this.out_string: this.in_string}</a>
 			</div>
 		);
 	}
