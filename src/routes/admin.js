@@ -27,18 +27,26 @@ export default class Admin extends React.Component {
             
         };
 
+        const removeField = async event =>
+        {
+            document.getElementById("teamNum").style.visibility = "hidden"
+            document.getElementById("ServNum").style.visibility = "hidden"
+            //document.getElementById("newCompete").style.display = 'none';
+            event.preventDefault();
+        };
+
         return(
         <div>
             <br/><br/><br/>
-            <NavBar/>
+            
             <form>
                 <span id = 'inner-title'>Admin Page</span><br/>
-                <input type="number" id="loginPassword" placeholder="Number of teams" /><br />
-                <input type="submit" id="TeamButton" class="buttons" value="Make Teams"
-                    onClick={newTeam} /><br/><br/>
-                <input type="ServiceName" id="loginPassword" placeholder="Service Name" /><br />
-                <input type="submit" id="ServiceButton" class="buttons" value="Make Service"
-                    onClick={newService} /><br/><br/>
+                <input type="number" id="teamNum" placeholder="Number of teams" /><br />
+                <input type="number" id="servNum" placeholder="Service Name" /><br />
+                <input type="submit" id="newCompete" class="buttons" value="New Competition"
+                    onClick={() => {
+                        document.getElementById("teamNum").style.visibility = "hidden"
+                    }}/>
                 <input type="submit" id="BlankSlateButton" class="buttons" value="New Competition"
                     onClick={() => { 
                         if (window.confirm('Are you sure you wish to delete this competition?')) 
