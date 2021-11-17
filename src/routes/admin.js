@@ -37,7 +37,7 @@ export default class Admin extends React.Component
 
         return(
         <div>
-            <NavBar/><br/><br/><br/><br/>
+            <NavBar/><br/><br/><br/>
             <span id = 'inner-title'>Admin Page</span><br/>
 
             {this.state.compete?
