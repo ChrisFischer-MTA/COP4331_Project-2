@@ -7,7 +7,6 @@ export default class Status extends React.Component {
 
 	constructor(props) {
 		super(props);
-		console.log("GOGHJFDHJDHJKGFDHJKGFDHJKGFD");
 		this.state = {
 			sessionId: props.sessionId,
 			entries: [

@@ -15,6 +15,9 @@ export default class Login  extends Component {
 	}
 	
 	handleSubmit(event) {
+		console.log(event.target);
+		event.preventDefault();
+	/*
 		event.preventDefault();
 		const {
 			email,
@@ -38,6 +41,7 @@ export default class Login  extends Component {
 		.catch(error => {
 			console.log("Error:\n", error);
 		});
+		*/
 	}
 
 	handleChange(event) {
