@@ -76,11 +76,11 @@ body {
 
 .navbar {
 	position: fixed;
+	left: 5px;
 	top: 0;
 	width: 100vw;
-	height: 10vh;
+	height: 6vh;
 	background: var(--secondary-color);
-	float: top;
 	text-align: center;
 	border: 1px solid black;
 	display: flex;
