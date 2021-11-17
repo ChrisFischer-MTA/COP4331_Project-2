@@ -20,33 +20,28 @@ export default class Admin extends React.Component
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleChange = this.handleChange.bind(this);
     };
 
     spwn(x) 
     {
 		let ret = [];
 		for (let i = 0; i < x; i++){
+			let x = (i+1) * 100
 			ret.push(<input 
                 key = {i*100 +1} 
                 type="text"
-                name={`name+${i*100+1}`} 
+                name={`name+${x}`} 
             />);
 		}
 		//console.log("The array is at 1: " + ret[1]);
 		return ret;
 	}
 
-    handleChange(event)
-    {
-        
-    }
-
     handleSubmit(event)
     {
-        alert("fuck you");
-        console.log(event.target.data);
-        event.preventDefault()
+		let data = new FormData(event.target);
+		data.forEach((key,value) => {console.log(key,value)})
+        event.preventDefault();
     }
 
     
@@ -95,10 +90,11 @@ export default class Admin extends React.Component
 
             {this.state.show? 
                 <div>
-                    <form onSubmit = {this.handleSubmit}>{this.spwn(this.state.servNumber)}</form>
+                    <form onSubmit = {this.handleSubmit}>{this.spwn(this.state.servNumber)}
                     
                     <button id = "sub" type="submit">Submit Services
                     </button>
+					</form>
 
                 </div> : null} 
         </div> : <div>
