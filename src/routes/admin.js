@@ -18,17 +18,44 @@ export default class Admin extends React.Component
             show:false,
             compete: true
         };
+
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     };
-    addField()
+
+    spwn(x) 
     {
-        this.setState({arr:[...this.state.arr, ""]})
-    }
-    handleChange(e, i)
+		let ret = [];
+		for (let i = 0; i < x; i++){
+			ret.push(<input 
+                key = {i*100 +1} 
+                type="text"
+                name={`name+${i*100+1}`} 
+            />);
+		}
+		//console.log("The array is at 1: " + ret[1]);
+		return ret;
+	}
+
+    handleChange(event)
     {
-        this.state.arr[i] = e.target.value
-        this.setState({arr:this.state.arr})
+        
     }
+
+    handleSubmit(event)
+    {
+        alert("fuck you");
+        console.log(event.target.data);
+        event.preventDefault()
+    }
+
+    
+
     render() {
+        function exerciseOne(stuff)
+        {
+            stuff.forEach(x=>console.log(x));
+        }
         const blankSlate = async event =>
         {
             // API call
@@ -68,22 +95,12 @@ export default class Admin extends React.Component
 
             {this.state.show? 
                 <div>
-                    {
-                        this.state.arr.map((service, i) =>{
-                            return(
-                                <div key ={i}>
-                                    <input type="text" onChange={(e)=>this.handleChange(e, i)} value={service}/>
-                                </div>
-                            )
-                        })
-                    }
-                    <button onClick={(e)=>this.addField(e)}>Add thing</button>
-                    <button id = "submit" onClick={
-                        console.log("Placeholder")}>Submit Services
+                    <form onSubmit = {this.handleSubmit}>{this.spwn(this.state.servNumber)}</form>
+                    
+                    <button id = "sub" type="submit">Submit Services
                     </button>
 
                 </div> : null} 
-
         </div> : <div>
             <input type="submit" id="BlankSlateButton" value="Delete Competition"
                     onClick={() => { 
@@ -96,3 +113,4 @@ export default class Admin extends React.Component
         );
     }
 };
+/*<button onClick={(e)=>this.addField(e)}>Add thing</button> */
