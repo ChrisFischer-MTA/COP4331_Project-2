@@ -1,5 +1,4 @@
 import React from 'react';
-import NavBar from '../NavBar';
 import '../styles/styles.css';
 
 export default class Status extends React.Component {
@@ -8,6 +7,7 @@ export default class Status extends React.Component {
 
 	constructor(props) {
 		super(props);
+		console.log("GOGHJFDHJDHJKGFDHJKGFDHJKGFD");
 		this.state = {
 			sessionId: props.sessionId,
 			entries: [
@@ -36,7 +36,6 @@ export default class Status extends React.Component {
 	render() {
 		return (
 			<div className="page">
-			<NavBar/>
 			<h1>Recent Checks</h1>
 			<table>
 			<tr>

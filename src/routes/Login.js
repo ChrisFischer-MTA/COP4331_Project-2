@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
 import axios from 'axios'; // need to add to package json
 
-export default class Registration extends Component {
+export default class Login  extends Component {
 	constructor(props) {
 		super(props);
+
 		this.state = {
 			email: "",
 			password: "",
 		}
+		
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleChange = this.handleChange.bind(this);
 	}
@@ -27,6 +29,11 @@ export default class Registration extends Component {
 		{ withCredentials: true })
 		.then(response => {
 			console.log(response);
+			if (response.data.error === "") {
+				this.props.handleSuccessfulAuth(response.data.sessionId);
+				//this.props.sessionId = response.data.sessionId;
+
+			}
 		})
 		.catch(error => {
 			console.log("Error:\n", error);
