@@ -9,6 +9,7 @@ export default class Status extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			sessionId: props.sessionId,
 			entries: [
 				{name:"www.google.com (HTTPS)", time: new Date().toLocaleString(), arrow: false},
 				{name:"www.google.com (HTTPS)", time: new Date().toLocaleString(), arrow: false},
@@ -21,12 +22,10 @@ export default class Status extends React.Component {
 	
 	getArrow(bool) {
 		return bool ? this.online : this.offline;
-
 	}
 
 	statusCheck() {
 		console.log("fux this shib");
-
 	}
 
 	componentDidMount() {

@@ -1,11 +1,28 @@
 import '../styles/styles.css';
 import NavBar from '../NavBar';
 
+function hi() {
+	document.getElementById('hi').style.display = "none";
+	alert("fuck you");
+
+}
+function bye() {
+	document.getElementById('bye').style.display = "none";
+	alert("fuck you");
+
+}
+
 export default function Service() {
   return (
     <div className="page">
 		<NavBar/>
-      	<h2>Service</h2>
+		<h1>Alright</h1>
+
+      	<h2 id="hi">Service</h2>
+      	<h2 id="bye">Hiii</h2>
+
+		<button onClick={hi}>hello</button>
+		<button onClick={bye}>bye</button>
     </div>
   );
 }

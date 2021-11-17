@@ -7,6 +7,8 @@ export default class Registration extends Component {
 		this.state = {
 			email: "",
 			password: "",
+			password_confirmation: "",
+			registration_errors: ""
 		}
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleChange = this.handleChange.bind(this);
@@ -44,7 +46,7 @@ export default class Registration extends Component {
 	render() {
 		return (
 			<div>
-				<h1>Login</h1>
+				<h1>Register</h1>
 				<form onSubmit={this.handleSubmit}>
 					<input type="email" 
 						name="email" 
@@ -57,6 +59,13 @@ export default class Registration extends Component {
 						name="password" 
 						placeholder="Password" 
 						value={this.state.password}
+						onChange={this.handleChange}
+						required
+					/>
+					<input type="password_confirmation" 
+						name="password_confirmation" 
+						placeholder="Password confirmation" 
+						value={this.state.password_confirmation}
 						onChange={this.handleChange}
 						required
 					/>
