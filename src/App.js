@@ -7,6 +7,7 @@ import Team from './routes/Team';
 import Home from './routes/Home';
 import Admin from './routes/admin';
 import Registration from './routes/Registration';
+import NotFound from './routes/NotFound';
 
 import NavBar from './NavBar';
 import Login from './routes/Login';
@@ -50,6 +51,7 @@ export default class App extends Component {
 						<Route path="/register" element={<Registration />} />
 						<Route path="/login" element={<Login />} />
 						<Route path="/admin" element={<Admin/>} />
+						<Route path="/NotFound" element={<NotFound/>} />
 					</Routes>
 				</BrowserRouter>
 			</div>

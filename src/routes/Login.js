@@ -50,6 +50,7 @@ export default class Login extends Component {
 	render() {
 		return (
 			<div>
+				<br/>
 				<h1>Login</h1>
 				<form onSubmit={this.handleSubmit}>
 					<input type="email" 
