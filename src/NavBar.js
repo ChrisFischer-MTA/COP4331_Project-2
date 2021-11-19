@@ -29,7 +29,7 @@ class NavBar extends React.Component {
 		return (
 			<div className="navbar">
 				<div className="dropdown">
-					<button className="navItem">Views</button>
+					<button id="view-button" className="navItem">Views</button>
 					<div className="dropdown-content">
 						<a href="/status"><i className="fas fa-glasses"></i> Status View</a>
 						<a href="/service"><i className="fas fa-glasses"></i> Service View</a>

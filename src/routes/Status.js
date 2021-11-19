@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import '../styles/styles.css';
 
 export default class Status extends React.Component {
@@ -9,16 +10,45 @@ export default class Status extends React.Component {
 		super(props);
 		this.state = {
 			sessionId: props.sessionId,
-			entries: [
-				{name:"www.google.com (HTTPS)", time: new Date().toLocaleString(), arrow: false},
-				{name:"www.google.com (HTTPS)", time: new Date().toLocaleString(), arrow: false},
-				{name:"www.google.com (HTTPS)", time: new Date().toLocaleString(), arrow: false},
-				{name:"www.google.com (HTTPS)", time: new Date().toLocaleString(), arrow: false},
-				{name:"www.google.com (HTTPS)", time: new Date().toLocaleString(), arrow: false}
-			]
+            machines: [{
+                name: "",
+                ip: "",
+                services: [{
+                    name: "",
+                    port: 0,
+                    upCount: 0,
+                    downCount: 0,
+                    history: {
+                        time: "",
+                        status: null
+                    }
+                }]
+            }]
 		}
+
+        console.log("Doing a status check");
+        axios.post('https://scoring-engine-api.herokuapp.com/api/statusHistory',
+            {
+                serviceId: this.state.sessionId
+            }
+        ).then(response => {
+                console.log("Success");
+                if (response.error === "") {
+
+                }
+
+                else {
+                    console.log("But not actually a success");
+                }
+        }).catch(err => {
+                console.log("Error");
+        });
+
 	}
 	
+    statusCheck() {
+    }
+
 	getArrow(bool) {
 		return bool ? this.online : this.offline;
 	}
@@ -30,76 +60,18 @@ export default class Status extends React.Component {
 	componentDidMount() {
 		setInterval(() => {this.statusCheck()}, 120000);
 	}
-			//{this.state.entries.map((element) => {return element.name})}
 
 	render() {
+        this.statusCheck();
 		return (
 			<div className="page">
 			<h1>Recent Checks</h1>
 			<table>
 			<tr>
 				<th>Name</th>
-				{this.state.entries.map( (element,index) => {
-					return <td>{element.time}</td>
-				})}
 			</tr>
-			<tr>
-				<td>David</td>
-				{this.state.entries.map( (element,index) => {
-					return <td>{this.getArrow(element.arrow)}</td>
-				})}
-			</tr>
-			<tr>
-				<td>Paul</td>
-				<td>{this.offline}</td>
-				<td>{this.online}</td>
-				<td>{this.online}</td>
-				<td>{this.online}</td>
-				<td>{this.online}</td>
-			</tr>
-			<tr>
-				<td>Rich</td>
-				<td>{this.offline}</td>
-				<td>{this.online}</td>
-				<td>{this.online}</td>
-				<td>{this.online}</td>
-				<td>{this.online}</td>
-			</tr>
-			<tr>
-				<td>Chris</td>
-				<td>{this.offline}</td>
-				<td>{this.online}</td>
-				<td>{this.online}</td>
-				<td>{this.online}</td>
-				<td>{this.online}</td>
-			</tr>
-			<tr>
-				<td>Blake</td>
-				<td>{this.offline}</td>
-				<td>{this.online}</td>
-				<td>{this.online}</td>
-				<td>{this.online}</td>
-				<td>{this.online}</td>
-			</tr>
-			<tr>
-				<td>Jason</td>
-				<td>{this.offline}</td>
-				<td>{this.online}</td>
-				<td>{this.online}</td>
-				<td>{this.online}</td>
-				<td>{this.online}</td>
-			</tr>
-			<tr>
-				<td>Victoria</td>
-				<td>{this.offline}</td>
-				<td>{this.online}</td>
-				<td>{this.online}</td>
-				<td>{this.online}</td>
-				<td>{this.online}</td>
-			</tr>
-			</table>
-			</div>
-
+            </table>
+            </div>
 		);
 	}
 }

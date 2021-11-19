@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios'; // need to add to package json
 
-export default class Login  extends Component {
+export default class Login extends Component {
 	constructor(props) {
 		super(props);
 
@@ -15,19 +15,15 @@ export default class Login  extends Component {
 	}
 	
 	handleSubmit(event) {
-		console.log(event.target);
-		event.preventDefault();
-	/*
 		event.preventDefault();
 		const {
 			email,
 			password
 		} = this.state;
 
-		axios.post("https://", { // TODO: make the URL the real one
+		axios.post("https://scoring-engine-api.herokuapp.com/api/login", { // TODO: make the URL the real one
 			email: email, 
 			password: password
-			
 		},
 		{ withCredentials: true })
 		.then(response => {
@@ -41,7 +37,6 @@ export default class Login  extends Component {
 		.catch(error => {
 			console.log("Error:\n", error);
 		});
-		*/
 	}
 
 	handleChange(event) {

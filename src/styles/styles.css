@@ -61,6 +61,17 @@ body {
 	flex: 1;
 }
 
+#view-button {
+    border: 1px red;
+    height: 10vh;
+	color: var(--primary-color);
+	background: var(--hglt-color);
+	border: solid 1px var(--primary-color);
+	border-radius: 10px;
+	transition-duration: 0.8s;
+	cursor: pointer;
+}
+
 #time {
 	border: solid 1px black;
 	border-radius: 30px;
@@ -79,7 +90,7 @@ body {
 	left: 0px;
 	top: 0;
 	width: 100vw;
-	height: 6vh;
+	height: 9vh;
 	background: var(--secondary-color);
 	text-align: center;
 	border: 1px solid black;
