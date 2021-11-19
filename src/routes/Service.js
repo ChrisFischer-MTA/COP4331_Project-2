@@ -3,12 +3,12 @@ import NavBar from '../NavBar';
 
 function hi() {
 	document.getElementById('hi').style.display = "none";
-	alert("fuck you");
+	alert("I am a nice button.");
 
 }
 function bye() {
 	document.getElementById('bye').style.display = "none";
-	alert("fuck you");
+	alert("I am a nicer button.");
 
 }
 
