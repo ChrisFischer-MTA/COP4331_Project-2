@@ -19,7 +19,7 @@ export default class App extends Component {
 
 		this.state = {
 			loggedIn: false,
-			sessionId: ""
+			sid: ""
 		}
 
 		this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
@@ -51,7 +51,7 @@ export default class App extends Component {
 						<Route path="/register" element={<Registration />} />
 						<Route path="/login" element={<Login />} />
 						<Route path="/admin" element={<Admin/>} />
-						<Route path="/NotFound" element={<NotFound/>} />
+						<Route path='*' element={<NotFound/>} />
 					</Routes>
 				</BrowserRouter>
 			</div>
