@@ -57,38 +57,24 @@ export default class Status extends React.Component {
     }
 
     getPortName(x) {
-        if(x === 80)
-        {
-            return "HTTP";
-        }
-        else if(x === 443)
-        {
-            return "HTTPS";
-        }
-        else if(x === 22)
-        {
-            return "SSH";
-        }
-        else if(x === 53)
-        {
-            return "DNS";
-        }
-            else if(x === 110)
-        {
-            return "POP";
-        }
-        else if(x === 25)
-        {
-            return "SMTP";
-        }
-        else if(x === 21)
-        {
-            return "FTP";
-        }
-
-        else
-        {
-            return "Service";
+        // http, https, ssh, dns
+        switch(x) {
+            case 80:
+                return "HTTP";
+            case 443:
+                return "HTTPS";
+            case 22:
+                return "SSH";
+            case 53:
+                return "DNS";
+            case 110:
+                return "POP";
+            case 25:
+                return "SMTP";
+            case 21:
+                return "FTP";  
+            default:
+                return "MISC";
         }
     }
 

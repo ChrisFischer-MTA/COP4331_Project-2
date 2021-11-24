@@ -108,7 +108,7 @@ export default class Status extends React.Component {
 	render() {
 		return (
 			<div className="page">
-			<h1>Status</h1>
+			<h1>Service Uptime</h1>
 			<table>
                 <tbody>
                     <tr>
