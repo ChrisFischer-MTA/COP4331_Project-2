@@ -32,14 +32,17 @@ export default class Admin extends React.Component
 		let ret = [];
 		for (let i = 0; i < x; i++){
 			let ID = i*100+1
+            ID = ID.toString()
             ret.push(
-                <div id = {ID}>
-                    <form>
-                        <input type="text" id={`machinename${ID}`} placeholder="Machine Name?" /><br/>
-                        <input type="number" id={`servNum${ID}`} placeholder="How many services?" /><br/>
-                        <button id = {`addList${ID}`} >Add Service</button>
-                    </form>
-                </div>)
+                <form id={ID} key={ID} onSubmit={(event) => {
+                    console.log("Logging dis form ");
+                    event.preventDefault();
+                }}>
+                    <input type="text" id={`machinename${ID}`} placeholder="Machine Name?" /><br/>
+                    <input type="number" id={`servNum${ID}`} placeholder="How many services?" /><br/>
+                    <button type="submit" id={`addList${ID}`} >Add Service</button>
+                </form>
+            )
 		}
         console.log(ret);
 		this.setState({arr: ret})

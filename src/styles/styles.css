@@ -22,6 +22,12 @@ body {
 
 }
 
+img {
+    mix-blend-mode: multiply;
+    background-color: rgba(255, 255, 255, 1);
+
+}
+
 .dropdown {
   position: relative;
   display: inline-block;

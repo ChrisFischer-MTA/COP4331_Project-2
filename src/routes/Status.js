@@ -3,73 +3,124 @@ import axios from 'axios';
 import '../styles/styles.css';
 
 export default class Status extends React.Component {
-	online = <i className="fas fa-solid fa-arrow-up online"></i>;
-	offline = <i className="fas fa-solid fa-arrow-down offline"></i>;
+    online = <img src="https://i.imgur.com/vMqbblf.png" alt="big black cock"></img>;
+    offline = <img src="https://i.imgur.com/fsRnTEo.png" alt="big black cock"></img>;
 
 	constructor(props) {
 		super(props);
 		this.state = {
 			sid: props.sessionId,
-            machines: [{
-                name: "",
-                ip: "",
-                services: [{
-                    name: "",
-                    port: 0,
-                    upCount: 0,
-                    downCount: 0,
-                    history: {
-                        time: "",
-                        status: null
-                    }
-                }]
-            }]
-		}
+            teamName: "",
+            services: [],
+            time: ""
+        }
+	}
 
+    statusCheck() {
         console.log("Doing a status check");
         axios.post('https://scoring-engine-api.herokuapp.com/api/statusHistory',
             {
-                sid: "619be17d613e9ad925a3428a"
+                sid: "619c5834089a695d80a3bedd"
             }
         ).then(response => {
                 console.log("Success");
-                if (response.error === "") {
+                if (response.data.error === "") {
+                    console.log(response.data);
+                    let services = [];
+                    let data = response.data.teams[0];
 
+                    data.machines.forEach((element) => {
+                        element.services.forEach((item) => {
+                            services.push({
+                                name: item.name, 
+                                port: item.port, 
+                                history: item.history
+                            });
+                        })
+                    });
+
+                    this.setState({
+                        services: services,
+                        teamName: data.name,
+                        time: services[0].history[0].timestamp
+                    })
                 }
 
                 else {
                     console.log("But not actually a success");
+                    console.log(response);
                 }
         }).catch(err => {
-                console.log("Error");
+                console.log("Error\n" + err);
         });
 
-	}
-	
-    statusCheck() {
+    }
+
+    getPortName(x) {
+        // http, https, ssh, dns
+        if(x === "80")
+        {
+            return "HTTP";
+        }
+        else if(x === "443")
+        {
+            return "HTTPS";
+        }
+        else if(x === "22")
+        {
+            return "SSH";
+        }
+        else if(x === "53")
+        {
+            return "DNS";
+        }
+            else if(x === "110")
+        {
+            return "POP";
+        }
+        else if(x === "25")
+        {
+            return "SMTP";
+        }
+        else if(x === "21")
+        {
+            return "FTP";
+        }
+
+        else
+        {
+            return "Service";
+        }
     }
 
 	getArrow(bool) {
 		return bool ? this.online : this.offline;
 	}
 
-	statusCheck() {
-		console.log("fux this shib");
-	}
-
 	componentDidMount() {
-		setInterval(() => {this.statusCheck()}, 120000);
+        this.statusCheck();
+		setInterval(() => {this.statusCheck()}, 300000);
 	}
 
 	render() {
-        this.statusCheck();
 		return (
 			<div className="page">
 			<h1>Recent Checks</h1>
 			<table>
-			<tr>
-				<th>Name</th>
-			</tr>
+                <tbody>
+                    <tr>
+                        <th>{this.state.teamName}</th>
+                        <th>{this.state.time}</th>
+                    </tr>
+                    {this.state.services.map((element, index) => {
+                        return (
+                            <tr>
+                                <td>{`${element.name}:${this.getPortName(element.port)}`}</td>
+                                <td>{this.getArrow(element.history[0].status)}</td>
+                            </tr>
+                        ) 
+                    })}
+                </tbody>
             </table>
             </div>
 		);
