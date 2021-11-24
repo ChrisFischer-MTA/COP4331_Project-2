@@ -57,32 +57,31 @@ export default class Status extends React.Component {
     }
 
     getPortName(x) {
-        // http, https, ssh, dns
-        if(x === "80")
+        if(x === 80)
         {
             return "HTTP";
         }
-        else if(x === "443")
+        else if(x === 443)
         {
             return "HTTPS";
         }
-        else if(x === "22")
+        else if(x === 22)
         {
             return "SSH";
         }
-        else if(x === "53")
+        else if(x === 53)
         {
             return "DNS";
         }
-            else if(x === "110")
+            else if(x === 110)
         {
             return "POP";
         }
-        else if(x === "25")
+        else if(x === 25)
         {
             return "SMTP";
         }
-        else if(x === "21")
+        else if(x === 21)
         {
             return "FTP";
         }
@@ -105,7 +104,7 @@ export default class Status extends React.Component {
 	render() {
 		return (
 			<div className="page">
-			<h1>Recent Checks</h1>
+			<h1>Status</h1>
 			<table>
                 <tbody>
                     <tr>
