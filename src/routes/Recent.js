@@ -9,22 +9,19 @@ export default class Recent extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			sid: props.sessionId,
-        teamName: "",
-        services: [],
-        time1 : "",
-        time2 : "",
-        time3 : "",
-        time4 : "",
-        time5 : ""
-      }
+			sid: props.sid,
+      userType: props.userType,
+      teamName: "",
+      services: [],
+      time : []
+    }
 	}
 
   statusCheck() {
     console.log("Doing a status check");
     axios.post('https://scoring-engine-api.herokuapp.com/api/statusHistory',
     {
-      sid: "61a0e17eb3a9deabf0b36861"
+      sid: this.state.sid
     }).then(response => {
       console.log("Success");
       if (response.data.error === "") {
@@ -45,11 +42,11 @@ export default class Recent extends React.Component {
         this.setState({
           services: services,
           teamName: data.name,
-          time1: services[0].history[0].timestamp,
-          time2: services[0].history[1].timestamp,
-          time3: services[0].history[2].timestamp,
-          time4: services[0].history[3].timestamp,
-          time5: services[0].history[4].timestamp
+          time: [services[0].history[0].timestamp,
+            services[0].history[1].timestamp,
+            services[0].history[2].timestamp,
+            services[0].history[3].timestamp,
+            services[0].history[4].timestamp]
         })
       }
 
@@ -96,16 +93,17 @@ export default class Recent extends React.Component {
 	render() {
 		return (
 			<div className="page">
+        {console.log(this.state.sid)}
         <h1> Recent Checks: {this.state.time1}</h1>
         <table>
           <tbody>
             <tr>
               <th>Team Name:{this.state.teamName}</th>
               <th>Current Time</th>
-              <th>{this.time2}</th>
-              <th>{this.time3}</th>
-              <th>{this.time4}</th>
-              <th>{this.time5}</th>
+              <th>{this.state.time[1]}</th>
+              <th>{this.state.time[2]}</th>
+              <th>{this.state.time[3]}</th>
+              <th>{this.state.time[4]}</th>
             </tr>
             {this.state.services.map((element, index) => {
               return (
