@@ -11,7 +11,8 @@ export default class Status extends React.Component {
 		this.state = {
 			sid: "69",
             userType: props.userType,
-            teams: null
+            teams: [],
+            services: []
         }
 	}
 
@@ -26,30 +27,36 @@ export default class Status extends React.Component {
                     console.log("Success");
                     console.log(response.data);
                     let teams = []
+                    let services = []
+
+                    response.data.teams[0].machines.forEach((machine)=> {
+                        machine.services.forEach((service) => {
+                            services.push(`${service.name}:${this.getPortName(service.port)}`)
+                        });
+
+                    });
+
+                    console.log(services);
+                    this.setState({services: services});
+                    // team -> name, services
 
                     response.data.teams.forEach((team) => {
-                        let upCount = 0;
-                        let downCount = 0;
-
+                        services = []
                         team.machines.forEach((item) => {
                             item.services.forEach((service) => {
-                                if (service.status) // TODO: change this to fit the fixed structure
-                                    upCount++;
-                                
-                                else 
-                                    downCount++;
+                                services.push(service.history[0].status)
                             })
                         });
 
                         teams.push({
                             teamName: team.name,
-                            upCount: upCount,
-                            downCount: downCount 
+                            services: services
                         })
+
                     })
 
                     this.setState({
-                        teams: teams
+                        teams: teams,
                     });
 
                     console.log(teams)
@@ -103,9 +110,23 @@ export default class Status extends React.Component {
 			<table>
                 <thead>
                     <tr>
+                        <th>Teams/Services</th>
+                        {this.state.services.map((service) => {
+                            return <th>{service}</th>;
+                        })}
                     </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody>
+                    {this.state.teams.map((team) => {
+                        return (<tr>
+                            <td>{team.teamName}</td>
+                            {team.services.map((service) => {
+                                return <td>{this.getArrow(service)}</td>
+                            })}
+                        </tr>)
+                    })
+                    }
+                </tbody>
             </table>
             </div>
 		);
