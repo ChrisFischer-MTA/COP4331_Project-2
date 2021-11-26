@@ -9,7 +9,7 @@ export default class Status extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			sid: props.sessionId,
+			sid: props.sid,
             teamName: "",
             services: [],
             time: ""
@@ -20,7 +20,7 @@ export default class Status extends React.Component {
         console.log("Doing a status check");
         axios.post('https://scoring-engine-api.herokuapp.com/api/statusHistory',
             {
-                sid: "619eed2c0be11351a40a67ff"
+                sid: this.state.sid 
             }
         ).then(response => {
                 console.log("Success");

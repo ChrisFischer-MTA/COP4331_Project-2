@@ -27,9 +27,9 @@ export default class Login extends Component {
 		},
 		{ withCredentials: true })
 		.then(response => {
-			console.log(response);
+			console.log(response.data);
 			if (response.data.error === "") {
-				this.props.handleSuccessfulAuth(response.data.sessionId);
+				this.props.handleSuccessfulAuth(response.data.sessionId, 0); // TODO: change zero to actual userType code
 				//this.props.sessionId = response.data.sessionId;
 
 			}
