@@ -1,14 +1,22 @@
 import React, {Component} from 'react';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
+/* TEAM */
 import Status from './routes/Status';
 import Service from './routes/Service';
+import Recent from './routes/Recent';
+import AddMachines from './routes/AddMachines';
+
+/* ADMIN */
+import A_Status from './routes/A_Status';
+import A_Service from './routes/A_Service';
+import A_Recent from './routes/A_Recent';
 import Team from './routes/Team';
-import Home from './routes/Home';
 import Admin from './routes/admin';
+
+import Home from './routes/Home';
 import Registration from './routes/Registration';
 import NotFound from './routes/NotFound';
-
 import NavBar from './NavBar';
 import Login from './routes/Login';
 import reportWebVitals from './reportWebVitals';
@@ -19,16 +27,18 @@ export default class App extends Component {
 
 		this.state = {
 			loggedIn: false,
-			sid: ""
+			sid: "619e47a833498320546f4588",
+            userType: 0
 		}
 
 		this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
 	}
 	
-	handleSuccessfulAuth(sessionId) {
+	handleSuccessfulAuth(sid, userType) {
 		this.setState({
 			loggedIn: true,
-			sessionId: sessionId
+			sid: sid,
+            userType: userType
 		});
 
 		console.log("Sucessfully logged in");	
@@ -41,15 +51,17 @@ export default class App extends Component {
 					<NavBar loggedIn={this.state.loggedIn}/>
 					<Routes>
 						<Route path="/" element={<Home />} />
-						<Route 
-							exact
-							path="/status" 
-							element={<Status/>}
-						/>
-						<Route path="/service" element={<Service />} />
-						<Route path="/team" element={<Team />} />
+						<Route path="/status" element={<Status sid={this.state.sid} userType={this.state.userType} />} />
+						<Route path="/service" element={<Service sid={this.state.sid} userType={this.state.userType} />} />
+						<Route path="/recent" element={<Recent sid={this.state.sid} userType={this.state.userType} />} />
+						<Route path="/addmachines" element={<AddMachines sid={this.state.sid} userType={this.state.userType} />} />
+
+						<Route path="/adminstatus" element={<A_Status sid={this.state.sid} userType={this.state.userType} />} />
+						<Route path="/adminservice" element={<A_Service sid={this.state.sid} userType={this.state.userType} />} />
+						<Route path="/adminrecent" element={<A_Recent sid={this.state.sid} userType={this.state.userType} />} />
+						<Route path="/team" element={<Team sid={this.state.sid} />} />
 						<Route path="/register" element={<Registration />} />
-						<Route path="/login" element={<Login />} />
+						<Route path="/login" element={<Login loggedIn={this.state.loggedIn} />} />
 						<Route path="/admin" element={<Admin/>} />
 						<Route path='*' element={<NotFound/>} />
 					</Routes>

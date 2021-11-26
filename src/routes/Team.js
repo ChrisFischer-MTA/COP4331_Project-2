@@ -3,9 +3,6 @@ import axios from 'axios';
 import '../styles/styles.css';
 
 export default class Status extends React.Component {
-    online = <img src="https://i.imgur.com/vMqbblf.png" alt="big black cock"></img>;
-    offline = <img src="https://i.imgur.com/fsRnTEo.png" alt="big black cock"></img>;
-
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -62,42 +59,6 @@ export default class Status extends React.Component {
                 console.log("Error\n" + err);
         });
 
-    }
-
-    getPortName(x) {
-        if(x === 80)
-        {
-            return "HTTP";
-        }
-        else if(x === 443)
-        {
-            return "HTTPS";
-        }
-        else if(x === 22)
-        {
-            return "SSH";
-        }
-        else if(x === 53)
-        {
-            return "DNS";
-        }
-            else if(x === 110)
-        {
-            return "POP";
-        }
-        else if(x === 25)
-        {
-            return "SMTP";
-        }
-        else if(x === 21)
-        {
-            return "FTP";
-        }
-
-        else
-        {
-            return "Service";
-        }
     }
 
 	componentDidMount() {

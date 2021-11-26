@@ -53,7 +53,7 @@ export default class Login extends Component {
 				<br/>
 				<h1>Login</h1>
 				<form onSubmit={this.handleSubmit}>
-					<input type="email" 
+					<input type="text" 
 						name="email" 
 						placeholder="Email" 
 						value={this.state.email}

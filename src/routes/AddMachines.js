@@ -2,23 +2,17 @@ import React from 'react';
 import axios from 'axios';
 import '../styles/styles.css';
 
-export default class Status extends React.Component {
-    online = <img src="https://i.imgur.com/vMqbblf.png" alt="big black cock"></img>;
-    offline = <img src="https://i.imgur.com/fsRnTEo.png" alt="big black cock"></img>;
-
+export default class AddMachines extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			sid: props.sid,
-            teamName: "",
-            services: [],
-            time: ""
+			sid: props.sid
         }
 	}
 
     statusCheck() {
         console.log("Doing a status check");
-        axios.post('https://scoring-engine-api.herokuapp.com/api/statusHistory',
+        axios.post('https://scoring-engine-api.herokuapp.com/api/getRequiredMachines',
             {
                 sid: this.state.sid 
             }
@@ -59,26 +53,40 @@ export default class Status extends React.Component {
     }
 
     getPortName(x) {
-        switch(x) {
-            case 80:
-                return "HTTP";
-            case 443:
-                return "HTTPS";
-            case 22:
-                return "SSH";
-            case 53:
-                return "DNS";
-            case 110:
-                return "POP";
-            case 25:
-                return "SMTP";
-            case 21:
-                return "FTP";  
-            default:
-                return "MISC";
+        if(x === 80)
+        {
+            return "HTTP";
+        }
+        else if(x === 443)
+        {
+            return "HTTPS";
+        }
+        else if(x === 22)
+        {
+            return "SSH";
+        }
+        else if(x === 53)
+        {
+            return "DNS";
+        }
+            else if(x === 110)
+        {
+            return "POP";
+        }
+        else if(x === 25)
+        {
+            return "SMTP";
+        }
+        else if(x === 21)
+        {
+            return "FTP";
+        }
+
+        else
+        {
+            return "Service";
         }
     }
-
 
 	getArrow(bool) {
 		return bool ? this.online : this.offline;
@@ -94,27 +102,7 @@ export default class Status extends React.Component {
 	render() {
 		return (
 			<div className="page">
-			<h1>Service Uptime</h1>
-			<table>
-                <thead>
-                    <tr>
-                        <th>{this.state.teamName}</th>
-                        <th>{this.state.time}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {this.state.services.map((element, index) => {
-                        let total = element.upCount + element.downCount;
-                        let percent = element.upCount / total;
-                        return (
-                            <tr>
-                                <td>{`${element.name}:${this.getPortName(element.port)}`}</td>
-                                <td>{percent}</td>
-                            </tr>
-                        ) 
-                    })}
-                </tbody>
-            </table>
+			<h1>Add Machines</h1>
             </div>
 		);
 	}

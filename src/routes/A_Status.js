@@ -9,11 +9,9 @@ export default class Status extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			sid: props.sid,
+			sid: "69",
             userType: props.userType,
-            teamName: "",
-            services: [],
-            time: ""
+            teams: null
         }
 	}
 
@@ -24,27 +22,37 @@ export default class Status extends React.Component {
                 sid: this.state.sid
             }
         ).then(response => {
-                console.log("Success");
                 if (response.data.error === "") {
+                    console.log("Success");
                     console.log(response.data);
-                    let services = [];
-                    let data = response.data.teams[0];
+                    let teams = []
 
-                    data.machines.forEach((element) => {
-                        element.services.forEach((item) => {
-                            services.push({
-                                name: item.name, 
-                                port: item.port, 
-                                history: item.history
-                            });
+                    response.data.teams.forEach((team) => {
+                        let upCount = 0;
+                        let downCount = 0;
+
+                        team.machines.forEach((item) => {
+                            item.services.forEach((service) => {
+                                if (service.status) // TODO: change this to fit the fixed structure
+                                    upCount++;
+                                
+                                else 
+                                    downCount++;
+                            })
+                        });
+
+                        teams.push({
+                            teamName: team.name,
+                            upCount: upCount,
+                            downCount: downCount 
                         })
-                    });
+                    })
 
                     this.setState({
-                        services: services,
-                        teamName: data.name,
-                        time: services[0].history[0].timestamp
-                    })
+                        teams: teams
+                    });
+
+                    console.log(teams)
                 }
 
                 else {
@@ -95,20 +103,9 @@ export default class Status extends React.Component {
 			<table>
                 <thead>
                     <tr>
-                        <th>{this.state.teamName}</th>
-                        <th>{this.state.time}</th>
                     </tr>
                 </thead>
-                <tbody>
-                    {this.state.services.map((element, index) => {
-                        return (
-                            <tr>
-                                <td>{`${element.name}:${this.getPortName(element.port)}`}</td>
-                                <td>{this.getArrow(element.history[0].status)}</td>
-                            </tr>
-                        ) 
-                    })}
-                </tbody>
+                <tbody></tbody>
             </table>
             </div>
 		);
