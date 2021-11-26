@@ -34,10 +34,10 @@ class NavBar extends React.Component {
 						<div className="dropdown">
 							<button id="view-button" className="navItem">Views</button>
 							<div className="dropdown-content">
-								<a href="/status"><i className="fas fa-glasses"></i> Status View</a>
-								<a href="/service"><i className="fas fa-glasses"></i> Service View</a>
+								<a href="/adminstatus"><i className="fas fa-glasses"></i> Status View</a>
+								<a href="/adminservice"><i className="fas fa-glasses"></i> Service View</a>
 								<a href="/team"><i className="fas fa-glasses"></i> Team View</a>
-								<a href="/recent"><i className="fas fa-glasses"/> Recent</a>
+								<a href="/adminrecent"><i className="fas fa-glasses"/> Recent</a>
 							</div>
 						</div>
 						<a className="navItem" href="/">Home</a>
@@ -51,6 +51,7 @@ class NavBar extends React.Component {
 							<div className="dropdown-content">
 								<a href="/status"><i className="fas fa-glasses"></i> Status View</a>
 								<a href="/service"><i className="fas fa-glasses"></i> Service View</a>
+								<a href="/recent"><i className="fas fa-glasses"/> Recent</a>
 							</div>
 						</div>
 						<a className="navItem" href="/">Home</a>
