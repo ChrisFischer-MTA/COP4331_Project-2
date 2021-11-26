@@ -20,7 +20,7 @@ export default class Status extends React.Component {
         console.log("Doing a status check");
         axios.post('https://scoring-engine-api.herokuapp.com/api/statusHistory',
             {
-                sid: "619c5834089a695d80a3bedd"
+                sid: "619eed2c0be11351a40a67ff"
             }
         ).then(response => {
                 console.log("Success");
