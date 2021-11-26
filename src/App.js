@@ -19,7 +19,7 @@ import Registration from './routes/Registration';
 import NotFound from './routes/NotFound';
 import NavBar from './NavBar';
 import Login from './routes/Login';
-import reportWebVitals from './reportWebVitals';
+//import reportWebVitals from './reportWebVitals';
 
 export default class App extends Component {
 	constructor() {
@@ -28,7 +28,7 @@ export default class App extends Component {
 		this.state = {
 			loggedIn: false,
 			sid: "619e47a833498320546f4588",
-            userType: 0
+            userType: true
 		}
 
 		this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
@@ -48,7 +48,7 @@ export default class App extends Component {
 		return (
 			<div className="app">
 				<BrowserRouter>
-					<NavBar loggedIn={this.state.loggedIn}/>
+					<NavBar loggedIn={this.state.loggedIn} userType={this.state.userType}/>
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/status" element={<Status sid={this.state.sid} userType={this.state.userType} />} />
