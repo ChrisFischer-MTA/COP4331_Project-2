@@ -94,7 +94,7 @@ export default class Recent extends React.Component {
 		return (
 			<div className="page">
         {console.log(this.state.sid)}
-        <h1> Recent Checks: {this.state.time1}</h1>
+        <h1> Recent Checks: {this.state.time[0]}</h1>
         <table>
           <tbody>
             <tr>
