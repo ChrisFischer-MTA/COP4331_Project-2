@@ -2,17 +2,17 @@ import React from 'react';
 import axios from 'axios';
 import '../styles/styles.css';
 
-export default class Status extends React.Component {
-    online = <img src="https://i.imgur.com/vMqbblf.png" alt="big black cock"></img>;
-    offline = <img src="https://i.imgur.com/fsRnTEo.png" alt="big black cock"></img>;
+export default class A_Service extends React.Component {
+    online = <img src="https://i.imgur.com/vMqbblf.png" alt="green arrow"></img>;
+    offline = <img src="https://i.imgur.com/fsRnTEo.png" alt="red"></img>;
 
 	constructor(props) {
 		super(props);
 		this.state = {
-			sid: props.sid,
-            teamName: "",
-            services: [],
-            time: ""
+			sid: "69",
+            userType: props.userType,
+            teams: [],
+            services: []
         }
 	}
 
@@ -20,32 +20,49 @@ export default class Status extends React.Component {
         console.log("Doing a status check");
         axios.post('https://scoring-engine-api.herokuapp.com/api/statusHistory',
             {
-                sid: this.state.sid 
+                sid: this.state.sid
             }
         ).then(response => {
-                console.log("Success");
                 if (response.data.error === "") {
+                    console.log("Success");
                     console.log(response.data);
-                    let services = [];
-                    let data = response.data.teams[0];
+                    let teams = []
+                    let services = []
 
-                    data.machines.forEach((element) => {
-                        element.services.forEach((item) => {
-                            services.push({
-                                name: item.name, 
-                                port: item.port, 
-                                upCount: item.upCount,
-                                downCount: item.downCount,
-                                history: item.history
-                            });
-                        })
+                    response.data.teams[0].machines.forEach((machine)=> {
+                        machine.services.forEach((service) => {
+                            services.push(`${service.name}:${this.getPortName(service.port)}`)
+                        });
+
                     });
 
-                    this.setState({
-                        services: services,
-                        teamName: data.name,
-                        time: services[0].history[0].timestamp
+                    console.log(services);
+                    this.setState({services: services});
+                    // team -> name, services
+
+                    response.data.teams.forEach((team) => {
+                        services = []
+                        team.machines.forEach((item) => {
+                            item.services.forEach((service) => {
+                                services.push({
+                                    upCount: service.upCount,
+                                    downCount: service.downCount
+                                })
+                            })
+                        });
+
+                        teams.push({
+                            teamName: team.name,
+                            services: services
+                        })
+
                     })
+
+                    this.setState({
+                        teams: teams,
+                    });
+
+                    console.log(teams)
                 }
 
                 else {
@@ -59,6 +76,7 @@ export default class Status extends React.Component {
     }
 
     getPortName(x) {
+        // http, https, ssh, dns
         switch(x) {
             case 80:
                 return "HTTP";
@@ -79,7 +97,6 @@ export default class Status extends React.Component {
         }
     }
 
-
 	getArrow(bool) {
 		return bool ? this.online : this.offline;
 	}
@@ -89,30 +106,32 @@ export default class Status extends React.Component {
 		setInterval(() => {this.statusCheck()}, 300000);
 	}
 
-    // 11 up
-    //  37 down
 	render() {
 		return (
 			<div className="page">
-			<h1>Service Uptime</h1>
+			<h1>Service View</h1>
 			<table>
                 <thead>
                     <tr>
-                        <th>{this.state.teamName}</th>
-                        <th>{this.state.time}</th>
+                        <th>Teams/Services</th>
+                        {this.state.services.map((service) => {
+                            return <th>{service}</th>;
+                        })}
                     </tr>
                 </thead>
                 <tbody>
-                    {this.state.services.map((element, index) => {
-                        let total = element.upCount + element.downCount;
-                        let percent = element.upCount / total;
-                        return (
+                    {this.state.teams.map((team, index) => {
+                        return(
                             <tr>
-                                <td>{`${element.name}:${this.getPortName(element.port)}`}</td>
-                                <td>{percent}</td>
-                            </tr>
-                        ) 
-                    })}
+                                <td>{team.teamName}</td> 
+                                {team.services.map((element) => {
+                                    let total = element.upCount + element.downCount;
+                                    let percent = element.upCount / total;
+                                    return <td>{percent}</td>
+                                })}
+                            </tr>)
+                        }
+                    )}
                 </tbody>
             </table>
             </div>

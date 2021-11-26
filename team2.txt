@@ -1,3 +1,202 @@
 {
-  "error": "Bad request! Expected: 'sid'."
+  "error": "",
+  "teams": [
+    {
+      "name": "PegaSUS",
+      "machines": [
+        {
+          "name": "Dragonfly",
+          "ip": "192.168.2.124",
+          "services": [
+            {
+              "name": "Dragonfly-HTTP-Blog",
+              "port": 80,
+              "status": false,
+              "history": [
+                {
+                  "status": false,
+                  "timestamp": "13:43"
+                },
+                {
+                  "status": true,
+                  "timestamp": "13:39"
+                },
+                {
+                  "status": true,
+                  "timestamp": "13:36"
+                },
+                {
+                  "status": true,
+                  "timestamp": "13:32"
+                },
+                {
+                  "status": true,
+                  "timestamp": "13:28"
+                }
+              ],
+              "upCount": 37,
+              "downCount": 12
+            },
+            {
+              "name": "Dragonfly-SSH",
+              "port": 22,
+              "status": true,
+              "history": [
+                {
+                  "status": true,
+                  "timestamp": "13:43"
+                },
+                {
+                  "status": true,
+                  "timestamp": "13:39"
+                },
+                {
+                  "status": true,
+                  "timestamp": "13:36"
+                },
+                {
+                  "status": false,
+                  "timestamp": "13:32"
+                },
+                {
+                  "status": true,
+                  "timestamp": "13:28"
+                }
+              ],
+              "upCount": 40,
+              "downCount": 9
+            }
+          ]
+        },
+        {
+          "name": "Butterfly",
+          "ip": "192.168.2.71",
+          "services": [
+            {
+              "name": "Butterfly-HTTP-Forum",
+              "port": 80,
+              "status": true,
+              "history": [
+                {
+                  "status": true,
+                  "timestamp": "13:43"
+                },
+                {
+                  "status": true,
+                  "timestamp": "13:39"
+                },
+                {
+                  "status": true,
+                  "timestamp": "13:36"
+                },
+                {
+                  "status": true,
+                  "timestamp": "13:32"
+                },
+                {
+                  "status": true,
+                  "timestamp": "13:28"
+                }
+              ],
+              "upCount": 39,
+              "downCount": 10
+            },
+            {
+              "name": "Butterfly-SSH",
+              "port": 20,
+              "status": true,
+              "history": [
+                {
+                  "status": true,
+                  "timestamp": "13:43"
+                },
+                {
+                  "status": true,
+                  "timestamp": "13:39"
+                },
+                {
+                  "status": false,
+                  "timestamp": "13:36"
+                },
+                {
+                  "status": false,
+                  "timestamp": "13:32"
+                },
+                {
+                  "status": true,
+                  "timestamp": "13:28"
+                }
+              ],
+              "upCount": 39,
+              "downCount": 10
+            }
+          ]
+        },
+        {
+          "name": "Firefly",
+          "ip": "192.168.2.92",
+          "services": [
+            {
+              "name": "Firefly-HTTPS-Portal",
+              "port": 443,
+              "status": true,
+              "history": [
+                {
+                  "status": true,
+                  "timestamp": "13:43"
+                },
+                {
+                  "status": true,
+                  "timestamp": "13:39"
+                },
+                {
+                  "status": true,
+                  "timestamp": "13:36"
+                },
+                {
+                  "status": true,
+                  "timestamp": "13:32"
+                },
+                {
+                  "status": true,
+                  "timestamp": "13:28"
+                }
+              ],
+              "upCount": 42,
+              "downCount": 7
+            },
+            {
+              "name": "Firefly-POP3-Mailserver",
+              "port": 110,
+              "status": true,
+              "history": [
+                {
+                  "status": true,
+                  "timestamp": "13:43"
+                },
+                {
+                  "status": false,
+                  "timestamp": "13:39"
+                },
+                {
+                  "status": true,
+                  "timestamp": "13:36"
+                },
+                {
+                  "status": true,
+                  "timestamp": "13:32"
+                },
+                {
+                  "status": true,
+                  "timestamp": "13:28"
+                }
+              ],
+              "upCount": 42,
+              "downCount": 7
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
