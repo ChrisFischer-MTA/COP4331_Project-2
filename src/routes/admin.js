@@ -1,69 +1,38 @@
 import React from 'react';
-import '../styles/admin.css'
-import NavBar from '../NavBar';
-import { tsImportEqualsDeclaration } from '@babel/types';
+import axios from 'axios';
+import '../styles/styles.css';
 
-export default class Admin extends React.Component 
-{
-    constructor(props)
-    {
+
+export default class Admin extends React.Component {
+    constructor(props) {
         super(props);
-        this.state = 
-        {
-            machineNumber: 0,
-            servNumber: 0,
-            arr: "",
-            show1:false,
-            compete: true
-        };
-        this.iterDiv = this.iterDiv.bind(this);
-    };
+        this.state = {
+            sid: props.sid
+        }
 
-    iterServices(event)
-    {
-        
+        this.callAddCompetition = this.callAddCompetition.bind(this);
+
     }
 
-    iterDiv(event) 
-    {
+    callAddCompetition(event) {
         event.preventDefault();
-        let data = new FormData(event.target);
-        let x = parseInt(data.get('MachineNum'));
-		let ret = [];
-		for (let i = 0; i < x; i++){
-			let ID = i*100+1
-            ID = ID.toString()
-            ret.push(
-                <form id={ID} key={ID} onSubmit={(event) => {
-                    console.log("Logging dis form ");
-                    event.preventDefault();
-                }}>
-                    <input type="text" id={`machinename${ID}`} placeholder="Machine Name?" /><br/>
-                    <input type="number" id={`servNum${ID}`} placeholder="How many services?" /><br/>
-                    <button type="submit" id={`addList${ID}`} >Add Service</button>
-                </form>
-            )
-		}
-        console.log(ret);
-		this.setState({arr: ret})
-	};
+        axios.post('', {
+        }).then((response) => {
+            console.log("Success" + response.data);
+        })
+        .catch((err) => {
+            console.log("Error: " + err);
+        });
 
-    render()
-    {
-        return(
-            <div>
-                <NavBar/>
-                <h1>Admin Page</h1>
-            <form onSubmit = {this.iterDiv}>
-                <input type="text" name="competeN" placeholder="Name of Competition?" /><br/>
-                <input type="number" name="MachineNum" placeholder="How many machines?" /><br/>
-                
-                <button id = "b1" type="submit">Add Machine</button>
-            </form>
-            <div>
-                {this.state.arr}
-            </div>
-            </div>
-        );
     }
-};
+
+    render() {
+        return (
+            <div className="page">
+                <h1>Admin</h1>
+            </div>
+        )
+
+    }
+
+}
