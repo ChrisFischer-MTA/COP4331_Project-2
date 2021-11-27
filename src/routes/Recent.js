@@ -90,36 +90,36 @@ export default class Recent extends React.Component {
 		setInterval(() => {this.statusCheck()}, 180000);
 	}
 
-	render() {
-		return (
-			<div className="page">
+  render() {
+    return (
+      <div className="page">
         {console.log(this.state.sid)}
         <h1> Recent Checks: {this.state.time[0]}</h1>
         <table>
-          <tbody>
-            <tr>
-              <th>Team Name:{this.state.teamName}</th>
-              <th>Current Time</th>
-              <th>{this.state.time[1]}</th>
-              <th>{this.state.time[2]}</th>
-              <th>{this.state.time[3]}</th>
-              <th>{this.state.time[4]}</th>
-            </tr>
-            {this.state.services.map((element, index) => {
-              return (
-                <tr>
-                  <td>{`${element.name}:${this.getPortName(element.port)}`}</td>
-                  <td>{this.getArrow(element.history[0].status)}</td>
-                  <td>{this.getArrow(element.history[1].status)}</td>
-                  <td>{this.getArrow(element.history[2].status)}</td>
-                  <td>{this.getArrow(element.history[3].status)}</td>
-                  <td>{this.getArrow(element.history[4].status)}</td>
-                </tr>
-              ) 
-            })}
-          </tbody>
-        </table>
+        <tbody>
+        <tr>
+          <th>Team Name:{this.state.teamName}</th>
+          <th>Current Time</th>
+          <th>{this.state.time[1]}</th>
+          <th>{this.state.time[2]}</th>
+          <th>{this.state.time[3]}</th>
+          <th>{this.state.time[4]}</th>
+        </tr>
+      {this.state.services.map((element, index) => {
+        return (
+          <tr>
+            <td>{`${element.name}:${this.getPortName(element.port)}`}</td>
+            <td>{this.getArrow(element.history[0].status)}</td>
+            <td>{this.getArrow(element.history[1].status)}</td>
+            <td>{this.getArrow(element.history[2].status)}</td>
+            <td>{this.getArrow(element.history[3].status)}</td>
+            <td>{this.getArrow(element.history[4].status)}</td>
+          </tr>
+        ) 
+      })}
+      </tbody>
+      </table>
       </div>
-		);
-	}
+    );
+  }
 }

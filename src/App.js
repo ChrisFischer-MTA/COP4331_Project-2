@@ -28,7 +28,7 @@ export default class App extends Component {
 		this.state = {
 			loggedIn: false,
 			sid: "619e6bf60be11351a40a67ed",
-            userType: false
+            userType: true
 		}
 
 		this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
