@@ -15,27 +15,27 @@
               "history": [
                 {
                   "status": true,
-                  "timestamp": "13:43"
+                  "timestamp": "00:48"
                 },
                 {
                   "status": true,
-                  "timestamp": "13:39"
+                  "timestamp": "00:43"
                 },
                 {
-                  "status": false,
-                  "timestamp": "13:36"
+                  "status": true,
+                  "timestamp": "00:41"
                 },
                 {
-                  "status": false,
-                  "timestamp": "13:32"
+                  "status": true,
+                  "timestamp": "00:37"
                 },
                 {
-                  "status": false,
-                  "timestamp": "13:28"
+                  "status": true,
+                  "timestamp": "00:32"
                 }
               ],
-              "upCount": 38,
-              "downCount": 11
+              "upCount": 225,
+              "downCount": 38
             },
             {
               "name": "Dragonfly-SSH",
@@ -44,27 +44,27 @@
               "history": [
                 {
                   "status": true,
-                  "timestamp": "13:43"
+                  "timestamp": "00:48"
                 },
                 {
                   "status": true,
-                  "timestamp": "13:39"
-                },
-                {
-                  "status": false,
-                  "timestamp": "13:36"
+                  "timestamp": "00:43"
                 },
                 {
                   "status": true,
-                  "timestamp": "13:32"
+                  "timestamp": "00:41"
                 },
                 {
                   "status": true,
-                  "timestamp": "13:28"
+                  "timestamp": "00:37"
+                },
+                {
+                  "status": true,
+                  "timestamp": "00:32"
                 }
               ],
-              "upCount": 40,
-              "downCount": 9
+              "upCount": 228,
+              "downCount": 35
             }
           ]
         },
@@ -79,56 +79,56 @@
               "history": [
                 {
                   "status": true,
-                  "timestamp": "13:43"
+                  "timestamp": "00:48"
                 },
                 {
                   "status": true,
-                  "timestamp": "13:39"
+                  "timestamp": "00:43"
                 },
                 {
                   "status": true,
-                  "timestamp": "13:36"
-                },
-                {
-                  "status": false,
-                  "timestamp": "13:32"
+                  "timestamp": "00:41"
                 },
                 {
                   "status": true,
-                  "timestamp": "13:28"
+                  "timestamp": "00:37"
+                },
+                {
+                  "status": true,
+                  "timestamp": "00:32"
                 }
               ],
-              "upCount": 39,
-              "downCount": 10
+              "upCount": 230,
+              "downCount": 33
             },
             {
               "name": "Butterfly-SSH",
-              "port": 20,
-              "status": false,
+              "port": 22,
+              "status": true,
               "history": [
                 {
-                  "status": false,
-                  "timestamp": "13:43"
+                  "status": true,
+                  "timestamp": "00:48"
                 },
                 {
                   "status": true,
-                  "timestamp": "13:39"
+                  "timestamp": "00:43"
                 },
                 {
                   "status": true,
-                  "timestamp": "13:36"
+                  "timestamp": "00:41"
                 },
                 {
                   "status": true,
-                  "timestamp": "13:32"
+                  "timestamp": "00:37"
                 },
                 {
                   "status": true,
-                  "timestamp": "13:28"
+                  "timestamp": "00:32"
                 }
               ],
-              "upCount": 42,
-              "downCount": 7
+              "upCount": 239,
+              "downCount": 24
             }
           ]
         },
@@ -143,56 +143,56 @@
               "history": [
                 {
                   "status": true,
-                  "timestamp": "13:43"
+                  "timestamp": "00:48"
                 },
                 {
                   "status": true,
-                  "timestamp": "13:39"
+                  "timestamp": "00:43"
+                },
+                {
+                  "status": true,
+                  "timestamp": "00:41"
                 },
                 {
                   "status": false,
-                  "timestamp": "13:36"
+                  "timestamp": "00:37"
                 },
                 {
                   "status": true,
-                  "timestamp": "13:32"
-                },
-                {
-                  "status": true,
-                  "timestamp": "13:28"
+                  "timestamp": "00:32"
                 }
               ],
-              "upCount": 38,
-              "downCount": 11
+              "upCount": 209,
+              "downCount": 54
             },
             {
               "name": "Firefly-POP3-Mailserver",
               "port": 110,
-              "status": false,
+              "status": true,
               "history": [
                 {
-                  "status": false,
-                  "timestamp": "13:43"
+                  "status": true,
+                  "timestamp": "00:48"
                 },
                 {
                   "status": true,
-                  "timestamp": "13:39"
-                },
-                {
-                  "status": false,
-                  "timestamp": "13:36"
-                },
-                {
-                  "status": false,
-                  "timestamp": "13:32"
+                  "timestamp": "00:43"
                 },
                 {
                   "status": true,
-                  "timestamp": "13:29"
+                  "timestamp": "00:41"
+                },
+                {
+                  "status": true,
+                  "timestamp": "00:37"
+                },
+                {
+                  "status": true,
+                  "timestamp": "00:32"
                 }
               ],
-              "upCount": 40,
-              "downCount": 9
+              "upCount": 210,
+              "downCount": 53
             }
           ]
         }
