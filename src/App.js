@@ -12,7 +12,7 @@ import A_STATUS from './routes/A_Status';
 import A_SERVICE from './routes/A_Service';
 import A_RECENT from './routes/A_Recent';
 import Team from './routes/Team';
-import Admin from './routes/Admin';
+import Admin from './routes/admin';
 import Reset from './routes/Reset'
 
 import Home from './routes/Home';
