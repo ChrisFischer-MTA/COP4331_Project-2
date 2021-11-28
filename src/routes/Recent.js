@@ -89,7 +89,7 @@ export default class Recent extends React.Component {
 
 	componentDidMount() {
         this.statusCheck();
-		setInterval(() => {this.statusCheck()}, 180000);
+		setInterval(() => {this.statusCheck()}, 120000);
 	}
 
   render() {

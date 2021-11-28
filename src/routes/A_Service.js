@@ -126,8 +126,8 @@ export default class A_Service extends React.Component {
                                 <td>{team.teamName}</td> 
                                 {team.services.map((element) => {
                                     let total = element.upCount + element.downCount;
-                                    let percent = element.upCount / total;
-                                    return <td>{percent}</td>
+                                    let percent = (100 * (element.upCount / total)).toFixed(2);
+                                    return <td>{`${percent}%`}</td>
                                 })}
                             </tr>)
                         }

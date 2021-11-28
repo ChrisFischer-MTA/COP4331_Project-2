@@ -63,7 +63,7 @@ export default class Status extends React.Component {
 
 	componentDidMount() {
         this.statusCheck();
-		setInterval(() => {this.statusCheck()}, 300000);
+		setInterval(() => {this.statusCheck()}, 120000);
 	}
 
 	render() {

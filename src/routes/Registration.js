@@ -24,35 +24,33 @@ export default class Registration extends Component {
 			password
 		} = this.state;
 
-		axios.post("https://", { // TODO: make the URL the real one
+		axios.post("https://scoring-engine-api.herokuapp.com/api/register", { 
 			email: email, 
 			password: password
-			
-		},
-		{ withCredentials: true })
+		})
 		.then(response => {
-			console.log(response);
+            console.log("Sucess:");
+            console.log(response.data);
 		})
 		.catch(error => {
 			console.log("Error:\n", error);
 		});
 
-		this.setState({
-			verify : true
-		});
 	}
 
 	handleSubmit2(event) {
 		event.preventDefault();
 		const {
-			veriCode
+			veriCode,
+            email
 		} = this.state;
 
-		axios.post("https://", { // TODO: make the URL the real one
-			veriCode: veriCode
+		axios.post("https://scoring-engine-api.herokuapp.com/api/verifyEmail", {
+			email: email,
+            code: veriCode
 		})
 		.then(response => {
-			console.log(response);
+			console.log(response.data);
 		})
 		.catch(error => {
 			console.log("Error:\n", error);
@@ -75,7 +73,7 @@ export default class Registration extends Component {
 					<form>
 						<p>A verification code has been sent to your email.</p>
 						<p>Please enter the verification code here:</p>
-						<input type="text" placeholder = "verify code" value={this.state.veriCode} required/>
+						<input type="text" onChange={this.handleChange} placeholder = "verify code" value={this.state.veriCode} required/>
 						<button type="submit">Submit</button>
 					</form>
 				</div>:

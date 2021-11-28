@@ -86,7 +86,7 @@ export default class Status extends React.Component {
 
 	componentDidMount() {
         this.statusCheck();
-		setInterval(() => {this.statusCheck()}, 300000);
+		setInterval(() => {this.statusCheck()}, 120000);
 	}
 
     // 11 up
@@ -105,11 +105,11 @@ export default class Status extends React.Component {
                 <tbody>
                     {this.state.services.map((element, index) => {
                         let total = element.upCount + element.downCount;
-                        let percent = element.upCount / total;
+                        let percent = (100 * (element.upCount / total)).toFixed(2);
                         return (
                             <tr>
                                 <td>{`${element.name}:${this.getPortName(element.port)}`}</td>
-                                <td>{percent}</td>
+                                <td>{`${percent}%`}</td>
                             </tr>
                         ) 
                     })}
