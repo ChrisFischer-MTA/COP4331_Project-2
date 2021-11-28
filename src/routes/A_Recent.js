@@ -1,146 +1,76 @@
+import {Link} from 'react-router-dom';
 import React from 'react';
 import axios from 'axios';
 import '../styles/styles.css';
+import Recent from './Recent.js';
 
-export default class Status extends React.Component {
+// TODO: ask paul to add teamName to object
+export default class ADMIN_RECENT extends React.Component {
     online = <img src="https://i.imgur.com/vMqbblf.png" alt="green arrow"></img>;
     offline = <img src="https://i.imgur.com/fsRnTEo.png" alt="red"></img>;
 
 	constructor(props) {
 		super(props);
 		this.state = {
+            userType: true,
 			sid: "69",
-            userType: props.userType,
-            teams: [],
-            services: [],
-            time: []
+            sids: []
         }
+
+        this.goToPage = this.goToPage.bind(this);
 	}
 
-  statusCheck() {
-    console.log("Doing a status check");
-    axios.post('https://scoring-engine-api.herokuapp.com/api/statusHistory',
-        {
-            sid: this.state.sid
-        }
-    ).then(response => {
-      if (response.data.error === "") {
-          console.log("Success");
-          let teams = []
-          let services = []
-          let data = response.data.teams[0];
 
-          // Timestamps
-          data.machines.forEach((element) => {
-            element.services.forEach((item) => {
-              services.push({
-                history: item.history
-              });
-            })
-          });
+    getRecentPages() {
+        console.log("Doing a status check");
+        axios.post('https://scoring-engine-api.herokuapp.com/api/ourMoney', {sid: this.state.sid})
+            .then(response => {
+                if (response.data.error === "") {
+                    console.log(response.data);
+                    let sids = [];
 
-          this.setState(
-            {time: [services[0].history[1].timestamp,
-                    services[0].history[2].timestamp,
-                    services[0].history[3].timestamp,
-                    services[0].history[4].timestamp]});
-          
-          // team -> name, services, ports
+                    response.data.sids.forEach((sid,i) => {
+                        sids.push({teamSid: sid, teamName: `Team${i}`});
+                    });
 
-          response.data.teams.forEach((team) => {
-              services = []
-              team.machines.forEach((item) => {
-                  item.services.forEach((service) => {
-                    services.push(`${team.name}  ${service.name}:${this.getPortName(service.port)}`)
-                  })
-              });
+                    this.setState({
+                        sids: sids
+                    });
+                }
 
-              teams.push({
-                  teamName: team.name,
-                  services: services,
-              })
-
-          })
-
-          this.setState({
-            teams: teams,
-          });
-      }
-
-      else {
-          console.log("But not actually a success");
-          console.log(response);
-      }
-      }).catch(err => {
-              console.log("Error\n" + err);
-      });
-
-  }
-
-    getPortName(x) {
-      // Port types
-      switch(x) {
-          case 80:
-              return "HTTP";
-          case 443:
-              return "HTTPS";
-          case 22:
-              return "SSH";
-          case 53:
-              return "DNS";
-          case 110:
-              return "POP";
-          case 25:
-              return "SMTP";
-          case 21:
-              return "FTP";  
-          default:
-              return "MISC";
-        }
+                else {
+                    console.log("But not really tho");
+                }})
+            .catch((err) => {
+                console.log("Error: " + err);
+            });
     }
 
-	getArrow(bool) {
-		return bool ? this.online : this.offline;
-	}
+    goToPage(event) {
+        event.preventDefault();
+
+    }
 
 	componentDidMount() {
-        this.statusCheck();
-		setInterval(() => {this.statusCheck()}, 180000);
+        this.getRecentPages();
 	}
 
 	render() {
 		return (
-			<div className="page">
-			<h1>Status</h1>
-			<table>
-        <thead>
-          <tr>
-            <th>Teams/Services</th>
-            <th>Current Time</th>
-            {this.state.time.map((minute) => {
-              return <th>{minute}</th>;
-            })}
-          </tr>
-        </thead>
-        <tbody>
-          {console.log("stuff:")}
-          {console.log(this.state.teams)}
-          {this.state.teams.map((team) => {
-              {team.services.map((service) => {
-                return (
-                  <tr>
-                  <td>{team.teamName}:{service}</td>
-                  {team.services.map((service) => {
-                    return <td>{this.getArrow(service)}</td>
-                    })
-                  }
-                  </tr>
-                )
-              })}
-          })}
-        </tbody>
-      </table>
-    </div>
+            <div className="page">
+                <h1>Admin Recent View</h1>
+            {this.state.sids.map((element) => {
+                    console.log(element)
+                        return(<Link 
+                                    key={element.teamSid}
+                                    to={{
+                                        pathname: "/recent",
+                                        search: `?sid=${element.teamSid}`
+                                    }}
+                            >{element.teamName}</Link>
+                        )})
+            }}
+            </div>
 		);
 	}
 }

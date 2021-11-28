@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import '../styles/styles.css';
 
-export default class Status extends React.Component {
+export default class ADMIN_STATUS extends React.Component {
     online = <img src="https://i.imgur.com/vMqbblf.png" alt="green arrow"></img>;
     offline = <img src="https://i.imgur.com/fsRnTEo.png" alt="red"></img>;
 

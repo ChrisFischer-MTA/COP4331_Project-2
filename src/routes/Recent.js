@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import '../styles/styles.css';
+import {useLocation} from 'react-router';
 
 export default class Recent extends React.Component {
   online = <img src="https://i.imgur.com/vMqbblf.png" alt="green arrow"></img>;
@@ -8,13 +9,14 @@ export default class Recent extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {
-			sid: props.sid,
-      userType: props.userType,
-      teamName: "",
-      services: [],
-      time : []
-    }
+            const params = new URLSearchParams(window.location.search);
+            this.state = {
+                sid: params.has('sid') ? params.get('sid') : props.sid,
+                userType: props.userType,
+                teamName: "",
+                services: [],
+                time : []
+            }
 	}
 
   statusCheck() {
