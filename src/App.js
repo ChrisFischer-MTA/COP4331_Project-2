@@ -12,7 +12,6 @@ import A_STATUS from './routes/A_Status';
 import A_SERVICE from './routes/A_Service';
 import A_RECENT from './routes/A_Recent';
 import Team from './routes/Team';
-import Admin from './routes/admin';
 import Reset from './routes/Reset'
 
 import Home from './routes/Home';
@@ -27,7 +26,7 @@ export default class App extends Component {
 		super();
 
 		this.state = {
-			loggedIn: false,
+			loggedIn: true,
 			sid: "619e6bf60be11351a40a67ed",
             userType: false
 		}
@@ -64,7 +63,6 @@ export default class App extends Component {
 						<Route path="/register" element={<Registration />} />
 						<Route path="/reset" element={<Reset />} />
 						<Route path="/login" element={<Login loggedIn={this.state.loggedIn} />} />
-						<Route path="/admin" element={<Admin sid={this.state.sid}/>} />
 						<Route path='*' element={<NotFound/>} />
 					</Routes>
 				</BrowserRouter>

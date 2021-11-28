@@ -15,26 +15,26 @@
               "history": [
                 {
                   "status": true,
-                  "timestamp": "00:48"
+                  "timestamp": "12:20"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:43"
+                  "timestamp": "12:17"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:41"
+                  "timestamp": "12:15"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:37"
+                  "timestamp": "12:12"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:32"
+                  "timestamp": "12:09"
                 }
               ],
-              "upCount": 225,
+              "upCount": 665,
               "downCount": 38
             },
             {
@@ -44,26 +44,26 @@
               "history": [
                 {
                   "status": true,
-                  "timestamp": "00:48"
+                  "timestamp": "12:20"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:43"
+                  "timestamp": "12:17"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:41"
+                  "timestamp": "12:15"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:37"
+                  "timestamp": "12:12"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:32"
+                  "timestamp": "12:09"
                 }
               ],
-              "upCount": 228,
+              "upCount": 668,
               "downCount": 35
             }
           ]
@@ -79,26 +79,26 @@
               "history": [
                 {
                   "status": true,
-                  "timestamp": "00:48"
+                  "timestamp": "12:20"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:43"
+                  "timestamp": "12:17"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:41"
+                  "timestamp": "12:15"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:37"
+                  "timestamp": "12:12"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:32"
+                  "timestamp": "12:09"
                 }
               ],
-              "upCount": 230,
+              "upCount": 670,
               "downCount": 33
             },
             {
@@ -108,26 +108,26 @@
               "history": [
                 {
                   "status": true,
-                  "timestamp": "00:48"
+                  "timestamp": "12:20"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:43"
+                  "timestamp": "12:17"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:41"
+                  "timestamp": "12:15"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:37"
+                  "timestamp": "12:12"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:32"
+                  "timestamp": "12:09"
                 }
               ],
-              "upCount": 239,
+              "upCount": 678,
               "downCount": 24
             }
           ]
@@ -143,27 +143,27 @@
               "history": [
                 {
                   "status": true,
-                  "timestamp": "00:48"
+                  "timestamp": "12:20"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:43"
+                  "timestamp": "12:17"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:41"
+                  "timestamp": "12:15"
                 },
                 {
                   "status": false,
-                  "timestamp": "00:37"
+                  "timestamp": "12:12"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:32"
+                  "timestamp": "12:09"
                 }
               ],
-              "upCount": 209,
-              "downCount": 54
+              "upCount": 559,
+              "downCount": 143
             },
             {
               "name": "Firefly-POP3-Mailserver",
@@ -172,27 +172,27 @@
               "history": [
                 {
                   "status": true,
-                  "timestamp": "00:48"
+                  "timestamp": "12:20"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:43"
+                  "timestamp": "12:17"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:41"
+                  "timestamp": "12:15"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:37"
+                  "timestamp": "12:12"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:32"
+                  "timestamp": "12:09"
                 }
               ],
-              "upCount": 210,
-              "downCount": 53
+              "upCount": 551,
+              "downCount": 151
             }
           ]
         }

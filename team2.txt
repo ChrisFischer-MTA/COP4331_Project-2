@@ -15,26 +15,26 @@
               "history": [
                 {
                   "status": true,
-                  "timestamp": "00:48"
+                  "timestamp": "12:20"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:43"
+                  "timestamp": "12:17"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:41"
+                  "timestamp": "12:15"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:37"
+                  "timestamp": "12:12"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:32"
+                  "timestamp": "12:09"
                 }
               ],
-              "upCount": 220,
+              "upCount": 661,
               "downCount": 44
             },
             {
@@ -44,26 +44,26 @@
               "history": [
                 {
                   "status": true,
-                  "timestamp": "00:48"
+                  "timestamp": "12:20"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:43"
+                  "timestamp": "12:17"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:41"
+                  "timestamp": "12:15"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:37"
+                  "timestamp": "12:12"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:32"
+                  "timestamp": "12:09"
                 }
               ],
-              "upCount": 231,
+              "upCount": 672,
               "downCount": 32
             }
           ]
@@ -79,26 +79,26 @@
               "history": [
                 {
                   "status": true,
-                  "timestamp": "00:48"
+                  "timestamp": "12:20"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:43"
+                  "timestamp": "12:17"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:41"
+                  "timestamp": "12:15"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:37"
+                  "timestamp": "12:12"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:32"
+                  "timestamp": "12:09"
                 }
               ],
-              "upCount": 233,
+              "upCount": 674,
               "downCount": 30
             },
             {
@@ -108,26 +108,26 @@
               "history": [
                 {
                   "status": true,
-                  "timestamp": "00:48"
+                  "timestamp": "12:20"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:43"
+                  "timestamp": "12:17"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:41"
+                  "timestamp": "12:15"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:37"
+                  "timestamp": "12:12"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:32"
+                  "timestamp": "12:09"
                 }
               ],
-              "upCount": 224,
+              "upCount": 664,
               "downCount": 39
             }
           ]
@@ -139,60 +139,60 @@
             {
               "name": "Firefly-HTTPS-Portal",
               "port": 443,
-              "status": false,
-              "history": [
-                {
-                  "status": false,
-                  "timestamp": "00:48"
-                },
-                {
-                  "status": true,
-                  "timestamp": "00:43"
-                },
-                {
-                  "status": true,
-                  "timestamp": "00:41"
-                },
-                {
-                  "status": true,
-                  "timestamp": "00:37"
-                },
-                {
-                  "status": true,
-                  "timestamp": "00:32"
-                }
-              ],
-              "upCount": 211,
-              "downCount": 52
-            },
-            {
-              "name": "Firefly-POP3-Mailserver",
-              "port": 110,
               "status": true,
               "history": [
                 {
                   "status": true,
-                  "timestamp": "00:48"
+                  "timestamp": "12:20"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:43"
-                },
-                {
-                  "status": false,
-                  "timestamp": "00:41"
+                  "timestamp": "12:17"
                 },
                 {
                   "status": true,
-                  "timestamp": "00:37"
+                  "timestamp": "12:15"
                 },
                 {
-                  "status": false,
-                  "timestamp": "00:32"
+                  "status": true,
+                  "timestamp": "12:12"
+                },
+                {
+                  "status": true,
+                  "timestamp": "12:09"
                 }
               ],
-              "upCount": 209,
-              "downCount": 54
+              "upCount": 574,
+              "downCount": 129
+            },
+            {
+              "name": "Firefly-POP3-Mailserver",
+              "port": 110,
+              "status": false,
+              "history": [
+                {
+                  "status": false,
+                  "timestamp": "12:20"
+                },
+                {
+                  "status": true,
+                  "timestamp": "12:17"
+                },
+                {
+                  "status": false,
+                  "timestamp": "12:15"
+                },
+                {
+                  "status": true,
+                  "timestamp": "12:12"
+                },
+                {
+                  "status": true,
+                  "timestamp": "12:09"
+                }
+              ],
+              "upCount": 548,
+              "downCount": 155
             }
           ]
         }
