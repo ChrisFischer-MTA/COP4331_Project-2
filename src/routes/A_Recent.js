@@ -1,7 +1,6 @@
 import {Link} from 'react-router-dom';
 import React from 'react';
-import axios from 'axios';
-import '../styles/styles.css';
+import axios from 'axios'; import '../styles/styles.css';
 import Recent from './Recent.js';
 
 // TODO: ask paul to add teamName to object
@@ -59,17 +58,20 @@ export default class ADMIN_RECENT extends React.Component {
 		return (
             <div className="page">
                 <h1>Admin Recent View</h1>
+                <table className="time-table">
+                <thead><th>Teams</th></thead>
             {this.state.sids.map((element) => {
                     console.log(element)
-                        return(<Link 
+                        return(<tr><td className="recent-link"><Link 
                                     key={element.teamSid}
                                     to={{
                                         pathname: "/recent",
                                         search: `?sid=${element.teamSid}`
                                     }}
-                            >{element.teamName}</Link>
+                            >{element.teamName}</Link></td></tr>
                         )})
-            }}
+            }
+            </table>
             </div>
 		);
 	}
