@@ -44,7 +44,7 @@ export default function AddTeam() {
                 //console.log(user);
                 //login(response.data.type, response.data.sid, email);
                 //console.log(user);
-                navigate('/status');
+                navigate('/addInstances');
 
 			}
 		})

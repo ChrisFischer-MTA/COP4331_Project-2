@@ -52,7 +52,10 @@ export default function Login() {
                 console.log(user);
                 login(response.data.type, response.data.sid, email);
                 console.log(user);
-                navigate('/status');
+                if (user.isAdmin)
+                    navigate('/adminstatus');
+                else
+                    navigate('/status');
 
 			}
 		})
