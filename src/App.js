@@ -9,9 +9,9 @@ import Service from './routes/Service';
 import Recent from './routes/Recent';
 import AddMachines from './routes/AddMachines';
 
-import A_STATUS from './routes/A_Status';
-import A_SERVICE from './routes/A_Service';
-import A_RECENT from './routes/A_Recent';
+import ADMIN_STATUS from './routes/A_Status';
+import ADMIN_SERVICE from './routes/A_Service';
+import ADMIN_RECENT from './routes/A_Recent';
 import Team from './routes/Team';
 import Reset from './routes/Reset'
 
@@ -25,7 +25,9 @@ export default function App() {
                     <Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/status" element={<Status />} />
+						<Route path="/adminstatus" element={<ADMIN_STATUS />} />
 						<Route path="/recent" element={<Recent />} />
+						<Route path="/adminrecent" element={<ADMIN_RECENT />} />
 						<Route path="/service" element={<Service />} />
 						<Route path="/team" element={<Team />} />
 						<Route path='*' element={<NotFound/>} />
