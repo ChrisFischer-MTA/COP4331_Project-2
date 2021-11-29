@@ -22,8 +22,8 @@ import NotFound from './routes/NotFound';
 export default function App() {
     return (
         <div className="app">
-                <NavBar />
                 <BrowserRouter>
+                <NavBar />
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/status" element={<Status />} />

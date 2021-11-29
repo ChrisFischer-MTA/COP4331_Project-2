@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import {Link} from 'react-router-dom';
 import {useUser} from './User';
 import { useNavigate} from "react-router-dom";
 
@@ -13,8 +14,29 @@ export default function NavBar() {
     });
 
     return (
-        <div id="navbar">
+        <div id={user.loggedIn ? "loggedIn" : "loggedOut"}>
+        <div className="navbar">
             <div className="dropdown">
+                { user.loggedIn ? <button id="view-button" className="navItem"><i className="fas fa-bars"></i></button> : ""}
+                <div className="dropdown-content">
+                    <Link to={user.isAdmin ? "/adminstatus" : "/status"}><i className="fas fa-glasses"></i> Status View</Link>
+                    <Link to={user.isAdmin ? "/adminservice" : "/service"}><i className="fas fa-glasses"></i> Service View</Link>
+                    <Link to={user.isAdmin ? "/adminrecent" : "/recent"}><i className="fas fa-glasses"></i> Recent View</Link>
+                    {user.isAdmin ? <Link to="/team"><i className="fas fa-glasses"></i> Team View</Link> : ""}
+                </div>
+            </div>
+            <a className="navItem" href="/"><i className="fas fa-home"></i> Home</a>
+            <p className="navItem" id="time">{time}</p>
+            {user.loggedIn ? <a className="navItem" href="/login" ><i className="fas fa-sign-in-alt"> Login</i></a> : <a className="navItem" href="/" ><i className="fas fa-sign-in-alt"> Logout</i></a>}
+        </div>
+        </div>
+        
+    )
+}
+
+/*
+        <div id="navbar">
+            {<div className="dropdown">
                 <button id="view-button" className="navItem"><i class="fas fa-bars"></i></button>
                 <div className="dropdown-content">
                     <a href="/adminstatus"><i className="fas fa-glasses"></i> Status View</a>
@@ -23,15 +45,12 @@ export default function NavBar() {
                     <a href="/adminrecent"><i className="fas fa-glasses"/> Recent</a>
                 </div>
             </div>
-            {}
+            }
 			<p className="navItem" id="time">{time}</p>
             {}
         </div>
-        
-    )
-}
 
-/*
+                    <Link {user.isAdmin ? to"\adminstatus" : to="/status"}><\Link>
 class NavBar extends React.Component {
 	constructor(props) {
 		super(props);
