@@ -8,6 +8,8 @@ import Home from './routes/Home';
 import Service from './routes/Service';
 import Recent from './routes/Recent';
 import AddMachines from './routes/AddMachines';
+import AddTeam from './routes/AddTeam'
+
 
 import A_STATUS from './routes/A_Status';
 import A_SERVICE from './routes/A_Service';
@@ -27,6 +29,7 @@ export default function App() {
             <Route path="/status" element={<Status />} />
             <Route path="/recent" element={<Recent />} />
             <Route path="/service" element={<Service />} />
+			<Route path="/AddTeam" element={<AddTeam />} />
             <Route path="/team" element={<Team />} />
             <Route path='*' element={<NotFound/>} />
           </Routes>
