@@ -57,7 +57,7 @@ export default function AddTeam() {
     return (
 			<div>
 				<br/>
-				<h1>Login</h1>
+				<h1>Register Team</h1>
 				<form className="loginForm" onSubmit={handleSubmit}>
 					<input type="text" 
 						name="name" 

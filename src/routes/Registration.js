@@ -95,7 +95,7 @@ export default class Registration extends Component {
 					</form>
 				</div>:
 				<div className="page">
-				<h1>Register</h1>
+				<h1>Register Admin</h1>
 				<form className="loginForm" onSubmit={this.handleSubmit}>
 					<input type="email" 
 						name="email" 

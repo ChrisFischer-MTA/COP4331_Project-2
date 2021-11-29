@@ -1,7 +1,7 @@
 import React from 'react/';
 import '../styles/styles.css';
-import Login from './Login';
 import Registration from './Registration';
+import AddTeam from './AddTeam';
 import {Link} from 'react-router-dom';
 
 export default class Home extends React.Component{
@@ -33,8 +33,8 @@ export default class Home extends React.Component{
 
         return (
             <div className="page">
-                <Registration handleSucessfulAuth={this.handleSuccessfulAuth}/>
-                <Login loggedIn={this.props.loggedIn} handleSuccessfulAuth={this.handleSuccessfulAuth}/>
+                <Registration />
+                <AddTeam />
             </div>
           );
     }
