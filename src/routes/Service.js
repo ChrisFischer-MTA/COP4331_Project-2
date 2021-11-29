@@ -1,26 +1,51 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import '../styles/styles.css';
+import {useUser} from '../User';
 
-export default class Status extends React.Component {
-    online = <img src="https://i.imgur.com/vMqbblf.png" alt="big black cock"></img>;
-    offline = <img src="https://i.imgur.com/fsRnTEo.png" alt="big black cock"></img>;
+const online = <img src="https://i.imgur.com/vMqbblf.png" alt="online"></img>;
+const offline = <img src="https://i.imgur.com/fsRnTEo.png" alt="offline"></img>;
 
-	constructor(props) {
-		super(props);
-		this.state = {
-			sid: props.sid,
-            teamName: "",
-            services: [],
-            time: ""
-        }
-	}
+const getPortName = (x) => {
+    switch(x) {
+        case 80:
+            return "HTTP";
+        case 443:
+            return "HTTPS";
+        case 22:
+            return "SSH";
+        case 53:
+            return "DNS";
+        case 110:
+            return "POP";
+        case 25:
+            return "SMTP";
+        case 21:
+            return "FTP";  
+        default:
+            return "MISC";
+    }
+}
 
-    statusCheck() {
+
+const getArrow = (bool) => {
+    return bool ? this.online : this.offline;
+}
+
+export default function Service() {
+    const {user} = useUser();
+    const [object, setObject] = useState({services:[], time: ""});
+
+	useEffect(() => {
+        statusCheck();
+		setInterval(() => {statusCheck()}, 120000);
+	}, []);
+
+    const statusCheck = () => {
         console.log("Doing a status check");
         axios.post('https://scoring-engine-api.herokuapp.com/api/statusHistory',
             {
-                sid: this.state.sid 
+                sid: user.sid 
             }
         ).then(response => {
                 console.log("Success");
@@ -41,9 +66,8 @@ export default class Status extends React.Component {
                         })
                     });
 
-                    this.setState({
+                    setObject({
                         services: services,
-                        teamName: data.name,
                         time: services[0].history[0].timestamp
                     })
                 }
@@ -58,64 +82,29 @@ export default class Status extends React.Component {
 
     }
 
-    getPortName(x) {
-        switch(x) {
-            case 80:
-                return "HTTP";
-            case 443:
-                return "HTTPS";
-            case 22:
-                return "SSH";
-            case 53:
-                return "DNS";
-            case 110:
-                return "POP";
-            case 25:
-                return "SMTP";
-            case 21:
-                return "FTP";  
-            default:
-                return "MISC";
-        }
-    }
-
-
-	getArrow(bool) {
-		return bool ? this.online : this.offline;
-	}
-
-	componentDidMount() {
-        this.statusCheck();
-		setInterval(() => {this.statusCheck()}, 120000);
-	}
-
-    // 11 up
-    //  37 down
-	render() {
-		return (
-			<div className="page">
-			<h1>Service Uptime</h1>
-			<table>
-                <thead>
-                    <tr>
-                        <th>{this.state.teamName}</th>
-                        <th>{this.state.time}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {this.state.services.map((element, index) => {
-                        let total = element.upCount + element.downCount;
-                        let percent = (100 * (element.upCount / total)).toFixed(2);
-                        return (
-                            <tr>
-                                <td>{`${element.name}:${this.getPortName(element.port)}`}</td>
-                                <td>{`${percent}%`}</td>
-                            </tr>
-                        ) 
-                    })}
-                </tbody>
-            </table>
-            </div>
-		);
-	}
+    return (
+        <div className="page">
+        <h1>Service Uptime</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>{user.name}</th>
+                    <th>{object.time}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {object.services.map((element, index) => {
+                    let total = element.upCount + element.downCount;
+                    let percent = (100 * (element.upCount / total)).toFixed(2);
+                    return (
+                        <tr>
+                            <td>{`${element.name}:${getPortName(element.port)}`}</td>
+                            <td>{`${percent}%`}</td>
+                        </tr>
+                    ) 
+                })}
+            </tbody>
+        </table>
+        </div>
+	);
 }
