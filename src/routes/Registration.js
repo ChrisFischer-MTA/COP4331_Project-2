@@ -23,21 +23,27 @@ export default class Registration extends Component {
 			email,
 			password
 		} = this.state;
-
-		axios.post("https://scoring-engine-api.herokuapp.com/api/register", { 
-			email: email, 
-			password: password
-		})
-		.then(response => {
-            console.log("Sucess:");
-            console.log(response.data);
-            this.setState({
-                verify: true
-            })
-		})
-		.catch(error => {
-			console.log("Error:\n", error);
-		});
+		if(this.state.password === this.state.password_confirmation)
+		{
+			axios.post("https://scoring-engine-api.herokuapp.com/api/register", { 
+				email: email, 
+				password: password
+			})
+			.then(response => {
+				console.log("Sucess:");
+				console.log(response.data);
+				this.setState({
+					verify: true
+				})
+			})
+			.catch(error => {
+				console.log("Error:\n", error);
+			});
+		}
+		else
+		{
+			alert("Please ensure your password matches with the confirmation!");
+		}
 
 	}
 
@@ -57,6 +63,7 @@ export default class Registration extends Component {
 		})
 		.catch(error => {
 			console.log("Error:\n", error);
+			alert("Your verification code does not match what is on file. Please try again.");
 		});
 	}
 
