@@ -32,7 +32,6 @@ export default function App() {
 						<Route path="/adminstatus" element={<ADMIN_STATUS />} />
 						<Route path="/adminservice" element={<ADMIN_SERVICE />} />
 						<Route path="/recent" element={<Recent />} />
-						<Route path="/adminrecent" element={<ADMIN_RECENT />} />
 						<Route path="/service" element={<Service />} />
 			            <Route path="/addTeam" element={<AddTeam />} />
 						<Route path="/team" element={<Team />} />

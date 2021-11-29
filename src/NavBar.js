@@ -21,7 +21,6 @@ export default function NavBar() {
                     <div className="dropdown-content">
                         <Link to={user.isAdmin ? "/adminstatus" : "/status"}><i className="fas fa-glasses"></i> Status View</Link>
                         <Link to={user.isAdmin ? "/adminservice" : "/service"}><i className="fas fa-glasses"></i> Service View</Link>
-                        <Link to={user.isAdmin ? "/adminrecent" : "/recent"}><i className="fas fa-glasses"></i> Recent View</Link>
                         {user.isAdmin ? <Link to="/team"><i className="fas fa-glasses"></i> Team View</Link> : ""}
                     </div>
                 </div>
