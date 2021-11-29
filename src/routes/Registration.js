@@ -60,6 +60,7 @@ export default class Registration extends Component {
 		})
 		.then(response => {
 			console.log(response.data);
+			alert("Your email and password has been added, Administrator.")
 		})
 		.catch(error => {
 			console.log("Error:\n", error);
@@ -83,7 +84,7 @@ export default class Registration extends Component {
 					<form onSubmit={this.handleSubmit2} className="loginForm">
 						<p>A verification code has been sent to your email.</p>
 						<p>Please enter the verification code here:</p>
-						<input type="text" name="veriCode" onChange={this.handleChange} placeholder = "verify code" value={this.state.veriCode} required/>
+						<input type="text" name="veriCode" onChange={this.handleChange} placeholder = "Verification Code" value={this.state.veriCode} required/>
 					<input type="email" 
 						name="email" 
 						placeholder="Email" 
