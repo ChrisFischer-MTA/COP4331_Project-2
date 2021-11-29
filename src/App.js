@@ -31,14 +31,13 @@ export default function App() {
 						<Route path="/login" element={<Login />} />
 						<Route path="/adminstatus" element={<ADMIN_STATUS />} />
 						<Route path="/adminservice" element={<ADMIN_SERVICE />} />
-						<Route path="/adminrecent" element={<ADMIN_RECENT />} />
-            <Route path="/recent" element={<Recent />} />
-            <Route path="/team" element={<Team />} />
-            <Route path='*' element={<NotFound/>} />
+            <Route path="/addTeam" element={<AddTeam />} />
+						<Route path="/recent" element={<Recent />} />
+						<Route path="/service" element={<Service />} />
+						<Route path="/team" element={<Team />} />
+						<Route path='*' element={<NotFound/>} />
           </Routes>
         </BrowserRouter>
       </div>
-
-    )
-
+    );
 }
