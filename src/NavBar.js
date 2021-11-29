@@ -20,6 +20,7 @@ export default function NavBar() {
                     { user.loggedIn ? <button id="view-button" className="navItem"><i className="fas fa-bars"></i></button> : ""}
                     <div className="dropdown-content">
                         <Link to={user.isAdmin ? "/adminstatus" : "/status"}><i className="fas fa-glasses"></i> Status View</Link>
+                        <Link to="/recent"><i className="fas fa-glasses"></i> Recent View</Link>
                         <Link to={user.isAdmin ? "/adminservice" : "/service"}><i className="fas fa-glasses"></i> Service View</Link>
                         {user.isAdmin ? <Link to="/team"><i className="fas fa-glasses"></i> Team View</Link> : ""}
                     </div>
