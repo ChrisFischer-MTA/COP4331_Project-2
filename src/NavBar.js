@@ -1,6 +1,37 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import {useUser} from './User';
+import { useNavigate} from "react-router-dom";
+
 import './styles/styles.css';
 
+export default function NavBar() {
+    const {user} = useUser();
+    const [time, setTime] = useState(new Date().toLocaleString());
+
+    useEffect(() => {
+        setInterval(() =>{setTime(new Date().toLocaleString())}, 1000);
+    });
+
+    return (
+        <div id="navbar">
+            <div className="dropdown">
+                <button id="view-button" className="navItem"><i class="fas fa-bars"></i></button>
+                <div className="dropdown-content">
+                    <a href="/adminstatus"><i className="fas fa-glasses"></i> Status View</a>
+                    <a href="/adminservice"><i className="fas fa-glasses"></i> Service View</a>
+                    <a href="/team"><i className="fas fa-glasses"></i> Team View</a>
+                    <a href="/adminrecent"><i className="fas fa-glasses"/> Recent</a>
+                </div>
+            </div>
+            {}
+			<p className="navItem" id="time">{time}</p>
+            {}
+        </div>
+        
+    )
+}
+
+/*
 class NavBar extends React.Component {
 	constructor(props) {
 		super(props);
@@ -80,3 +111,4 @@ class NavBar extends React.Component {
 }
 
 export default NavBar;
+*/
