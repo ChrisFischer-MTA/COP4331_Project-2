@@ -11,7 +11,6 @@ import Recent from './routes/Recent';
 import AddMachines from './routes/AddMachines';
 import AddTeam from './routes/AddTeam'
 
-
 import ADMIN_STATUS from './routes/A_Status';
 import ADMIN_SERVICE from './routes/A_Service';
 import ADMIN_RECENT from './routes/A_Recent';
@@ -22,24 +21,23 @@ import NotFound from './routes/NotFound';
 
 export default function App() {
     return (
-        <div className="app">
-                <BrowserRouter>
-                <NavBar />
-                    <Routes>
-						<Route path="/" element={<Home />} />
+      <div className="app">
+        <BrowserRouter>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/service" element={<Service />} />
+            <Route path="/status" element={<Status />} />
 						<Route path="/login" element={<Login />} />
-						<Route path="/status" element={<Status />} />
 						<Route path="/adminstatus" element={<ADMIN_STATUS />} />
 						<Route path="/adminservice" element={<ADMIN_SERVICE />} />
+            <Route path="/addTeam" element={<AddTeam />} />
 						<Route path="/recent" element={<Recent />} />
-						<Route path="/adminrecent" element={<ADMIN_RECENT />} />
 						<Route path="/service" element={<Service />} />
-			            <Route path="/addTeam" element={<AddTeam />} />
 						<Route path="/team" element={<Team />} />
 						<Route path='*' element={<NotFound/>} />
-                    </Routes>
-                </BrowserRouter>
-        </div>
-    )
-
+          </Routes>
+        </BrowserRouter>
+      </div>
+    );
 }
