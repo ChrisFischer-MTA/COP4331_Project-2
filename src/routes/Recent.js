@@ -84,7 +84,7 @@ export default function Recent() {
 
 	useEffect(() => {
         statusCheck();
-		setInterval(() => {statusCheck()}, 120000);
+		setInterval(() => {statusCheck()}, 5000);
 	},[]);
 
     return (

@@ -94,7 +94,7 @@ export default function ADMIN_STATUS() {
     }
 	useEffect(() => {
         statusCheck();
-		setInterval(() => {statusCheck()}, 120000);
+		setInterval(() => {statusCheck()}, 5000);
 	}, [])
 
     return (
@@ -114,7 +114,7 @@ export default function ADMIN_STATUS() {
                     return (<tr>
                         <td>{team.teamName}</td>
                         {team.services.map((service) => {
-                            return <td>{getArrow(service)}</td>
+                            return <td>{service != null ? getArrow(service) : ""}</td>
                         })}
                     </tr>)
                 })

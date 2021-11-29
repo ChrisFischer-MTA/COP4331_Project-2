@@ -7,12 +7,17 @@ function UserProvider({children}) {
     const [user, setUser] = useState({loggedIn: false, isAdmin: false, sid: "", name: ""});
 
     const login = (userType, sid, name) => {
+        let bool = (userType === 'admin') ? true : false;
+        console.log("bool" + bool);
+
         setUser({
             loggedIn: true,
-            isAdmin: userType === 'admin' ? true : false,
+            isAdmin: bool,
             name: name,
             sid: sid
         });
+
+        console.log(user);
     }
 
     return <UserContext.Provider value={{user, login}}>{children}</UserContext.Provider>

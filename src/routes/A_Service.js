@@ -103,7 +103,7 @@ export default class A_Service extends React.Component {
 
 	componentDidMount() {
         this.statusCheck();
-		setInterval(() => {this.statusCheck()}, 300000);
+		setInterval(() => {this.statusCheck()}, 5000);
 	}
 
 	render() {

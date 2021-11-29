@@ -39,6 +39,7 @@ export default function Login() {
 			alert("Must provide an email")
 		}
 	}
+
 	const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -50,9 +51,12 @@ export default function Login() {
 			console.log(response.data);
 			if (response.data.error === "") {
                 console.log(user);
+                console.log(response.data.type);
+                console.log(response.data.sid);
+                console.log(email);
                 login(response.data.type, response.data.sid, email);
                 console.log(user);
-                if (user.isAdmin)
+                if (user.isAdmin === true)
                     navigate('/adminstatus');
                 else
                     navigate('/status');

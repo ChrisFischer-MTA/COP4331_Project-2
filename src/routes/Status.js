@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import '../styles/styles.css';
 import {useUser} from '../User';
+import {useNavigate} from 'react-router-dom';
 
 const online = <img src="https://i.imgur.com/vMqbblf.png" alt="online"></img>;
 const offline = <img src="https://i.imgur.com/fsRnTEo.png" alt="offline"></img>;
@@ -34,7 +35,9 @@ const getArrow = (bool) => {
 
 export default function Status() {
     const {user} = useUser();
+    let navigate = useNavigate();
     const [object, setObject] = useState({services: [], time:"" });
+    console.log(user);
 
     const statusCheck = () => {
         console.log("Doing a status check");
@@ -60,10 +63,27 @@ export default function Status() {
                         })
                     });
 
-                    setObject({
-                        services: services,
-                        time: services[0].history[0].timestamp
-                    })
+                        setObject({
+                            services: services,
+                            time: ""
+                        })
+                    /*
+                    if (services[0].history.length === 0) {
+                        console.log("History was empty");
+                        setObject({
+                            services: services,
+                            time: ""
+                        })
+                    }
+
+                    else {
+                        setObject({
+                            services: services,
+                            time: services[0].history[0].timestamp
+                        })
+
+                    }
+                    */
                 }
 
                 else {
@@ -76,7 +96,11 @@ export default function Status() {
 
     }
 
-    useEffect(() => {statusCheck()}, []);
+        if (user.isAdmin) navigate('/adminstatus')
+    useEffect(() => {
+        statusCheck();
+        setInterval(() => {statusCheck()}, 5000);
+    }, []);
 
     return (
         <div className="page">

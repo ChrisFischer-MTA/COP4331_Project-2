@@ -38,7 +38,7 @@ export default function Service() {
 
 	useEffect(() => {
         statusCheck();
-		setInterval(() => {statusCheck()}, 120000);
+		setInterval(() => {statusCheck()}, 5000);
 	}, []);
 
     const statusCheck = () => {

@@ -94,7 +94,7 @@ export default class AddMachines extends React.Component {
 
 	componentDidMount() {
         this.statusCheck();
-		setInterval(() => {this.statusCheck()}, 300000);
+		setInterval(() => {this.statusCheck()}, 5000);
 	}
 
     // 11 up
