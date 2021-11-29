@@ -31,6 +31,9 @@ export default class Registration extends Component {
 		.then(response => {
             console.log("Sucess:");
             console.log(response.data);
+            this.setState({
+                verify: true
+            })
 		})
 		.catch(error => {
 			console.log("Error:\n", error);
@@ -58,11 +61,11 @@ export default class Registration extends Component {
 	}
 
 	handleChange(event) {
+		event.preventDefault();
 		this.setState({
 			[event.target.name]: event.target.value
 		})
 
-		event.preventDefault();
 	}
 
 	render() {
@@ -70,10 +73,17 @@ export default class Registration extends Component {
 			<div>
 				{this.state.verify?
 				<div className="page"><br/>
-					<form>
+					<form onSubmit={this.handleSubmit2} className="loginForm">
 						<p>A verification code has been sent to your email.</p>
 						<p>Please enter the verification code here:</p>
-						<input type="text" onChange={this.handleChange} placeholder = "verify code" value={this.state.veriCode} required/>
+						<input type="text" name="veriCode" onChange={this.handleChange} placeholder = "verify code" value={this.state.veriCode} required/>
+					<input type="email" 
+						name="email" 
+						placeholder="Email" 
+						value={this.state.email}
+						onChange={this.handleChange}
+						required
+					/>
 						<button type="submit">Submit</button>
 					</form>
 				</div>:
@@ -101,7 +111,7 @@ export default class Registration extends Component {
 						onChange={this.handleChange}
 						required
 					/>
-					<button type="submit">Submit</button>
+					<button type="submit">Submit <i className="fas fa-sign-in-alt"></i></button>
 				</form>
 				</div>}
 			</div>

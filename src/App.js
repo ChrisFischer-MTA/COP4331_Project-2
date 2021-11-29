@@ -1,24 +1,43 @@
-import React, {Component} from 'react';
+import NavBar from './NavBar';
+import React, {useState, useContext, useEffect} from 'react';
+import { useNavigate} from "react-router-dom";
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
-
-/* TEAM */
 import Status from './routes/Status';
+import Home from './routes/Home';
+/*
+
 import Service from './routes/Service';
 import Recent from './routes/Recent';
 import AddMachines from './routes/AddMachines';
 
-/* ADMIN */
 import A_STATUS from './routes/A_Status';
 import A_SERVICE from './routes/A_Service';
 import A_RECENT from './routes/A_Recent';
 import Team from './routes/Team';
 import Reset from './routes/Reset'
 
-import Home from './routes/Home';
 import NotFound from './routes/NotFound';
-import NavBar from './NavBar';
+*/
+
+export default function App() {
+    return (
+        <div className="app">
+                <NavBar />
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/status" element={<Status />} />
+                    </Routes>
+                </BrowserRouter>
+        </div>
+
+    )
+
+}
+
 //import reportWebVitals from './reportWebVitals';
 
+/*
 export default class App extends Component {
 	constructor(props) {
 		super(props);
@@ -47,21 +66,19 @@ export default class App extends Component {
 				<BrowserRouter>
 					<NavBar loggedIn={this.state.loggedIn} isAdmin={this.state.isAdmin}/>
 					<Routes>
-						<Route 
-                            path="/" 
-                            element={<Home handleLogin={this.handleLogin} {...props} sid={this.state.sid} isAdmin={this.state.isAdmin} />} />
+						<Route path="/" element={<Home {...this.state} handleLogin={this.handleLogin}/>} />
+						<Route path="/status" element={<Status sid={this.state.sid} isAdmin={this.state.isAdmin} />} />
+						<Route path="/service" element={<Service sid={this.state.sid} isAdmin={this.state.isAdmin} />} />
+						<Route path="/recent" element={<Recent sid={this.state.sid} isAdmin={this.state.isAdmin} />} />
+						<Route path="/addmachines" element={<AddMachines sid={this.state.sid} isAdmin={this.state.isAdmin} />} />
 
-						<Route path="/status" element={<Status sid={this.state.sid} {...props} isAdmin={this.state.isAdmin} />} />
-						<Route path="/service" element={<Service sid={this.state.sid} {...props} isAdmin={this.state.isAdmin} />} />
-						<Route path="/recent" element={<Recent sid={this.state.sid} {...props} isAdmin={this.state.isAdmin} />} />
-						<Route path="/addmachines" element={<AddMachines {...props} sid={this.state.sid} isAdmin={this.state.isAdmin} />} />
-
-						<Route path="/adminstatus" element={<A_STATUS {...props} sid={this.state.sid} isAdmin={this.state.isAdmin} />} />
-						<Route path="/adminservice" element={<A_SERVICE {...props} sid={this.state.sid} isAdmin={this.state.isAdmin} />} />
-						<Route path="/adminrecent" element={<A_RECENT {...props} sid={this.state.sid} isAdmin={this.state.isAdmin} />} />
-						<Route path="/team" element={<Team {...props} sid={this.state.sid} />} />
-						<Route path="/reset" element={<Reset {...props} />} />
+						<Route path="/adminstatus" element={<A_STATUS sid={this.state.sid} isAdmin={this.state.isAdmin} />} />
+						<Route path="/adminservice" element={<A_SERVICE sid={this.state.sid} isAdmin={this.state.isAdmin} />} />
+						<Route path="/adminrecent" element={<A_RECENT sid={this.state.sid} isAdmin={this.state.isAdmin} />} />
+						<Route path="/team" element={<Team sid={this.state.sid} />} />
+						<Route path="/reset" element={<Reset />} />
 						<Route path='*' element={<NotFound/>} />
+
 					</Routes>
 				</BrowserRouter>
 			</div>
@@ -69,3 +86,4 @@ export default class App extends Component {
 	}
 }
 
+*/

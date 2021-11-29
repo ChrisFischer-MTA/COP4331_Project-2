@@ -1,9 +1,8 @@
 import {Link} from 'react-router-dom';
 import React from 'react';
-import axios from 'axios'; import '../styles/styles.css';
-import Recent from './Recent.js';
+import axios from 'axios'; 
+import '../styles/styles.css';
 
-// TODO: ask paul to add teamName to object
 export default class ADMIN_RECENT extends React.Component {
     online = <img src="https://i.imgur.com/vMqbblf.png" alt="green arrow"></img>;
     offline = <img src="https://i.imgur.com/fsRnTEo.png" alt="red"></img>;

@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import '../styles/styles.css';
-import {useLocation} from 'react-router';
 
 export default class Recent extends React.Component {
   online = <img src="https://i.imgur.com/vMqbblf.png" alt="green arrow"></img>;

@@ -2,6 +2,7 @@ import React from 'react/';
 import '../styles/styles.css';
 import Login from './Login';
 import Registration from './Registration';
+import {Link} from 'react-router-dom';
 
 export default class Home extends React.Component{
     constructor(props) {
@@ -19,15 +20,22 @@ export default class Home extends React.Component{
             */
             console.log("Sucessfully logged in");	
             this.props.handleLogin(sid, userType);
-            this.props.history.push("/status");
+            //this.props.history.push("/status");
         }
     render() {
-      return (
-        <div className="page">
-        <Registration handleSucessfulAuth={this.handleSuccessfulAuth}/>
-		<Login loggedIn={this.props.loggedIn} handleSuccessfulAuth={this.handleSuccessfulAuth}/>
+        if (this.props.loggedIn) 
+            return (<Link
+                        to={{
+                            pathname: "/status",
+                            state: {...this.props}
+                        }}
+            />)
 
-        </div>
-      );
+        return (
+            <div className="page">
+                <Registration handleSucessfulAuth={this.handleSuccessfulAuth}/>
+                <Login loggedIn={this.props.loggedIn} handleSuccessfulAuth={this.handleSuccessfulAuth}/>
+            </div>
+          );
     }
 }

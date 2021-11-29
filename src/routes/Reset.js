@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import axios from 'axios'; // need to add to package json
 import '../styles/admin.css'
 
