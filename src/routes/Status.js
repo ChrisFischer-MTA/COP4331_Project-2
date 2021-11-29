@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import '../styles/styles.css';
 import {useUser} from '../User';
@@ -7,29 +7,29 @@ const online = <img src="https://i.imgur.com/vMqbblf.png" alt="green arrow"></im
 const offline = <img src="https://i.imgur.com/fsRnTEo.png" alt="red"></img>;
 
 const getPortName = (x) => {
-        // http, https, ssh, dns
-        switch(x) {
-            case 80:
-                return "HTTP";
-            case 443:
-                return "HTTPS";
-            case 22:
-                return "SSH";
-            case 53:
-                return "DNS";
-            case 110:
-                return "POP";
-            case 25:
-                return "SMTP";
-            case 21:
-                return "FTP";  
-            default:
-                return "MISC";
-        }
+    // http, https, ssh, dns
+    switch(x) {
+        case 80:
+            return "HTTP";
+        case 443:
+            return "HTTPS";
+        case 22:
+            return "SSH";
+        case 53:
+            return "DNS";
+        case 110:
+            return "POP";
+        case 25:
+            return "SMTP";
+        case 21:
+            return "FTP";  
+        default:
+            return "MISC";
     }
+}
 
 const getArrow = (bool) => {
-		return bool ? online : offline;
+	return bool ? online : offline;
 }
 
 export default function Status() {
@@ -76,7 +76,7 @@ export default function Status() {
 
     }
 
-    statusCheck();
+    useEffect(() => {statusCheck()}, []);
 
     return (
         <div className="page">

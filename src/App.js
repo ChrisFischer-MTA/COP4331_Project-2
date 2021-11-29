@@ -4,7 +4,6 @@ import { useNavigate} from "react-router-dom";
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Status from './routes/Status';
 import Home from './routes/Home';
-/*
 
 import Service from './routes/Service';
 import Recent from './routes/Recent';
@@ -17,7 +16,6 @@ import Team from './routes/Team';
 import Reset from './routes/Reset'
 
 import NotFound from './routes/NotFound';
-*/
 
 export default function App() {
     return (
@@ -25,8 +23,10 @@ export default function App() {
                 <BrowserRouter>
                 <NavBar />
                     <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/status" element={<Status />} />
+						<Route path="/" element={<Home />} />
+						<Route path="/status" element={<Status />} />
+						<Route path="/recent" element={<Recent />} />
+						<Route path='*' element={<NotFound/>} />
                     </Routes>
                 </BrowserRouter>
         </div>
@@ -38,6 +38,14 @@ export default function App() {
 //import reportWebVitals from './reportWebVitals';
 
 /*
+						<Route path="/service" element={<Service />} />
+						<Route path="/addmachines" element={<AddMachines />} />
+
+						<Route path="/adminstatus" element={<A_STATUS />} />
+						<Route path="/adminservice" element={<A_SERVICE />} />
+						<Route path="/adminrecent" element={<A_RECENT />} />
+						<Route path="/team" element={<Team />} />
+						<Route path="/reset" element={<Reset />} />
 export default class App extends Component {
 	constructor(props) {
 		super(props);

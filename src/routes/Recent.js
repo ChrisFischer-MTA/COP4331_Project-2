@@ -1,66 +1,16 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import {useUser} from '../User';
 import axios from 'axios';
 import '../styles/styles.css';
 
-export default class Recent extends React.Component {
-  online = <img src="https://i.imgur.com/vMqbblf.png" alt="green arrow"></img>;
-  offline = <img src="https://i.imgur.com/fsRnTEo.png" alt="red arrow"></img>;
+const online = <img src="https://i.imgur.com/vMqbblf.png" alt="green arrow"></img>;
+const offline = <img src="https://i.imgur.com/fsRnTEo.png" alt="red arrow"></img>;
 
-	constructor(props) {
-		super(props);
-            const params = new URLSearchParams(window.location.search);
-            this.state = {
-                sid: params.has('sid') ? params.get('sid') : props.sid,
-                userType: props.userType,
-                teamName: "",
-                services: [],
-                time : []
-            }
-	}
+const getArrow = (bool) => {
+	return bool ? online : offline;
+}
 
-  statusCheck() {
-    console.log("Doing a status check");
-    axios.post('https://scoring-engine-api.herokuapp.com/api/statusHistory',
-    {
-      sid: this.state.sid
-    }).then(response => {
-      console.log("Success");
-      if (response.data.error === "") {
-        console.log(response.data);
-        let services = [];
-        let data = response.data.teams[0];
-
-        data.machines.forEach((element) => {
-          element.services.forEach((item) => {
-            services.push({
-              name: item.name, 
-              port: item.port, 
-              history: item.history
-            });
-          })
-        });
-
-        this.setState({
-          services: services,
-          teamName: data.name,
-          time: [services[0].history[0].timestamp,
-            services[0].history[1].timestamp,
-            services[0].history[2].timestamp,
-            services[0].history[3].timestamp,
-            services[0].history[4].timestamp]
-        })
-      }
-
-      else {
-        console.log("But not actually a success");
-        console.log(response);
-      }
-      }).catch(err => {
-          console.log("Error\n" + err);
-      });
-    }
-
-  getPortName(x) {
+const getPortName = (x) => {
     // http, https, ssh, dns
     switch(x) {
       case 80:
@@ -80,43 +30,88 @@ export default class Recent extends React.Component {
       default:
           return "MISC";
     }
-  }
+}
 
-	getArrow(bool) {
-		return bool ? this.online : this.offline;
-	}
+export default function Recent() {
+    console.log("am i even getting here");
+    const {user} = useUser();
+    console.log(user.sid);
+    const [object, setObject] = useState({services: [], time:[] });
 
-	componentDidMount() {
-        this.statusCheck();
-		setInterval(() => {this.statusCheck()}, 120000);
-	}
+    const statusCheck = () => {
+        console.log("Doing a status check");
+        axios.post('https://scoring-engine-api.herokuapp.com/api/statusHistory',
+        {
+          sid: user.sid
+        }).then(response => {
+          console.log("Success");
+          if (response.data.error === "") {
+            console.log(response.data);
+            let services = [];
+            let data = response.data.teams[0];
 
-  render() {
+            data.machines.forEach((element) => {
+              element.services.forEach((item) => {
+                services.push({
+                  name: item.name, 
+                  port: item.port, 
+                  history: item.history
+                });
+              })
+            });
+
+            setObject({
+              services: services,
+              time: [services[0].history[0].timestamp,
+                services[0].history[1].timestamp,
+                services[0].history[2].timestamp,
+                services[0].history[3].timestamp,
+                services[0].history[4].timestamp]
+            });
+          }
+
+          else {
+            console.log("But not actually a success");
+            console.log(response);
+          }
+          }).catch(err => {
+              console.log("Error\n" + err);
+              console.log(user.sid);
+          });
+    }
+
+
+
+	useEffect(() => {
+        statusCheck();
+		setInterval(() => {statusCheck()}, 120000);
+	},[]);
+
     return (
       <div className="page">
-        {console.log(this.state.sid)}
+        {console.log(user.sid)}
         <h1>Recent Checks</h1>
             <table className="time-table">
             <thead>
                 <tr>
-                  <th>Team Name: {this.state.teamName}</th>
-                  <th>{`${this.state.time[0]}`}</th>
-                  <th>{`${this.state.time[1]}`}</th>
-                  <th>{`${this.state.time[2]}`}</th>
-                  <th>{`${this.state.time[3]}`}</th>
-                  <th>{`${this.state.time[4]}`}</th>
+                  <th>Team Name: {user.name}</th>
+                  <th>{`${object.time[0]}`}</th>
+                  <th>{`${object.time[1]}`}</th>
+                  <th>{`${object.time[2]}`}</th>
+                  <th>{`${object.time[3]}`}</th>
+                  <th>{`${object.time[4]}`}</th>
                 </tr>
             </thead>
             <tbody>
-              {this.state.services.map((element, index) => {
+              {object.services.map((element, index) => {
                 return (
                   <tr>
-                    <td>{`${element.name}:${this.getPortName(element.port)}`}</td>
-                    <td>{this.getArrow(element.history[0].status)}</td>
-                    <td>{this.getArrow(element.history[1].status)}</td>
-                    <td>{this.getArrow(element.history[2].status)}</td>
-                    <td>{this.getArrow(element.history[3].status)}</td>
-                    <td>{this.getArrow(element.history[4].status)}</td>
+                    <td>{`${element.name}:${getPortName(element.port)}`}</td>
+                    <td>{getArrow(element.history[0].status)}</td>
+                    <td>{getArrow(element.history[1].status)}</td>
+                    <td>{getArrow(element.history[2].status)}</td>
+                    <td>{getArrow(element.history[3].status)}</td>
+                    <td>{getArrow(element.history[4].status)}</td>
                   </tr>
                 ) 
               })}
@@ -124,5 +119,4 @@ export default class Recent extends React.Component {
       </table>
       </div>
     );
-  }
 }
