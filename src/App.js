@@ -26,6 +26,7 @@ export default function App() {
 						<Route path="/" element={<Home />} />
 						<Route path="/status" element={<Status />} />
 						<Route path="/recent" element={<Recent />} />
+						<Route path="/team" element={<Team />} />
 						<Route path='*' element={<NotFound/>} />
                     </Routes>
                 </BrowserRouter>
