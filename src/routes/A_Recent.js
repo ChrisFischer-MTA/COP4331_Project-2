@@ -15,8 +15,6 @@ export default class ADMIN_RECENT extends React.Component {
 			sid: "69",
             sids: []
         }
-
-        this.goToPage = this.goToPage.bind(this);
 	}
 
 
@@ -26,14 +24,9 @@ export default class ADMIN_RECENT extends React.Component {
             .then(response => {
                 if (response.data.error === "") {
                     console.log(response.data);
-                    let sids = [];
-
-                    response.data.sids.forEach((sid,i) => {
-                        sids.push({teamSid: sid, teamName: `Team${i}`});
-                    });
 
                     this.setState({
-                        sids: sids
+                        sids: response.data.object
                     });
                 }
 
@@ -43,11 +36,6 @@ export default class ADMIN_RECENT extends React.Component {
             .catch((err) => {
                 console.log("Error: " + err);
             });
-    }
-
-    goToPage(event) {
-        event.preventDefault();
-
     }
 
 	componentDidMount() {
@@ -61,12 +49,11 @@ export default class ADMIN_RECENT extends React.Component {
                 <table className="time-table">
                 <thead><th>Teams</th></thead>
             {this.state.sids.map((element) => {
-                    console.log(element)
                         return(<tr><td className="recent-link"><Link 
                                     key={element.teamSid}
                                     to={{
                                         pathname: "/recent",
-                                        search: `?sid=${element.teamSid}`
+                                        search: `?sid=${element.sid}`
                                     }}
                             >{element.teamName}</Link></td></tr>
                         )})

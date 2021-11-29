@@ -79,7 +79,7 @@ export default class Registration extends Component {
 				</div>:
 				<div className="page">
 				<h1>Register</h1>
-				<form onSubmit={this.handleSubmit}>
+				<form className="loginForm" onSubmit={this.handleSubmit}>
 					<input type="email" 
 						name="email" 
 						placeholder="Email" 

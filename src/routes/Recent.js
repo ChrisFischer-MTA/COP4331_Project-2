@@ -100,7 +100,7 @@ export default class Recent extends React.Component {
             <table className="time-table">
             <thead>
                 <tr>
-                  <th>Team Name:{this.state.teamName}</th>
+                  <th>Team Name: {this.state.teamName}</th>
                   <th>{`${this.state.time[0]}`}</th>
                   <th>{`${this.state.time[1]}`}</th>
                   <th>{`${this.state.time[2]}`}</th>

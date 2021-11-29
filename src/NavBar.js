@@ -6,7 +6,7 @@ class NavBar extends React.Component {
 		super(props);
 		this.state = {
 			curTime: new Date().toLocaleString(),
-			userType: props.userType,
+			isAdmin: props.isAdmin,
 			loggedIn: props.loggedIn
 		}
 		//this.state.curTime = new Date().toLocaleString();
@@ -28,7 +28,7 @@ class NavBar extends React.Component {
 			<div>
 				{ this.state.loggedIn?
 					<div id = "loggedIn">
-						{ this.state.userType ?
+						{ this.state.isAdmin ?
 							<div className="navbar">
 								<div className="dropdown">
 									<button id="view-button" className="navItem"><i class="fas fa-bars"></i></button>

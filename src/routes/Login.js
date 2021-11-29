@@ -15,21 +15,19 @@ export default class Login extends Component {
 	}
 	
 	handleSubmit(event) {
-		event.preventDefault();
-		const {
+		event.preventDefault(); const {
 			email,
 			password
 		} = this.state;
 
-		axios.post("https://scoring-engine-api.herokuapp.com/api/login", { // TODO: make the URL the real one
+		axios.post("https://scoring-engine-api.herokuapp.com/api/login", { 
 			email: email, 
 			password: password
-		},
-		{ withCredentials: true })
+		})
 		.then(response => {
 			console.log(response.data);
 			if (response.data.error === "") {
-				this.props.handleSuccessfulAuth(response.data.sessionId, 0); // TODO: change zero to actual userType code
+				this.props.handleSuccessfulAuth(response.data.sid, false);
 				//this.props.sessionId = response.data.sessionId;
 
 			}
@@ -52,10 +50,10 @@ export default class Login extends Component {
 			<div>
 				<br/>
 				<h1>Login</h1>
-				<form onSubmit={this.handleSubmit}>
+				<form className="loginForm" onSubmit={this.handleSubmit}>
 					<input type="text" 
 						name="email" 
-						placeholder="Email" 
+						placeholder="Email/Name" 
 						value={this.state.email}
 						onChange={this.handleChange}
 						required
@@ -67,7 +65,7 @@ export default class Login extends Component {
 						onChange={this.handleChange}
 						required
 					/>
-					<button type="submit">Submit</button>
+					<button type="submit">Submit <i className="fas fa-sign-in-alt"></i></button>
 				</form>
 			</div>
 
