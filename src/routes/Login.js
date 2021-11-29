@@ -28,9 +28,16 @@ export default function Login() {
 
 	const resetPass = (event) => {
 		event.preventDefault();
-		axios.post("https://scoring-engine-api.herokuapp.com/api/resetPassword",{
-			email: email
-		})
+		if(!(email === "")){
+			axios.post("https://scoring-engine-api.herokuapp.com/api/resetPassword",{
+				email: email
+			})
+			alert("Please check your email for the new password.");
+		}
+		else
+		{
+			alert("Must provide an email")
+		}
 	}
 	const handleSubmit = (event) => {
         event.preventDefault();
