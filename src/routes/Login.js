@@ -26,6 +26,19 @@ export default function Login() {
     const {value:password, bind:bindPassword, reset:resetPassword } = useInput('');
     let navigate = useNavigate();
 
+	const resetPass = (event) => {
+		event.preventDefault();
+		if(!(email === "")){
+			axios.post("https://scoring-engine-api.herokuapp.com/api/resetPassword",{
+				email: email
+			})
+			alert("Please check your email for the new password.");
+		}
+		else
+		{
+			alert("Must provide an email")
+		}
+	}
 	const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -67,6 +80,7 @@ export default function Login() {
 						required
 					/>
 					<button type="submit">Submit <i className="fas fa-sign-in-alt"></i></button>
+					<button onClick={resetPass}>Forgot Password</button>
 				</form>
 			</div>
 
