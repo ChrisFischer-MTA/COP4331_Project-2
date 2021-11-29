@@ -30,6 +30,7 @@ export default function App() {
 						<Route path="/login" element={<Login />} />
 						<Route path="/status" element={<Status />} />
 						<Route path="/adminstatus" element={<ADMIN_STATUS />} />
+						<Route path="/adminservice" element={<ADMIN_SERVICE />} />
 						<Route path="/recent" element={<Recent />} />
 						<Route path="/adminrecent" element={<ADMIN_RECENT />} />
 						<Route path="/service" element={<Service />} />
