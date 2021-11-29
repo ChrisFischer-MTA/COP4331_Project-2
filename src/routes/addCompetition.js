@@ -3,8 +3,13 @@ import axios from 'axios';
 import '../styles/styles.css';
 
 
-function Admin(){
-
+function addCompetition(){
+    const {user} = useUser();
+    const {value:name, bind:bindName, reset:resetName } = useInput('');
+    const {value:maxTeams, bind:bindMaxTeams, reset:resetMaxTeams } = useInput('');
+    const {value:startTime, bind:bindStartTime, reset:resetStartTime } = useInput('');
+    const {value:endTime, bind:bindEndTime, reset:resetEndTime } = useInput('');
+    const {value:machines, bind:bindMachine, reset:resetMachine } = useInput('');
     const callAddCompetition() {
         axios.post('https://scoring-engine-api.herokuapp.com/api/addCompetition', {
             
