@@ -15,20 +15,20 @@ export default function NavBar() {
 
     return (
         <div id={user.loggedIn ? "loggedIn" : "loggedOut"}>
-        <div className="navbar">
-            <div className="dropdown">
-                { user.loggedIn ? <button id="view-button" className="navItem"><i className="fas fa-bars"></i></button> : ""}
-                <div className="dropdown-content">
-                    <Link to={user.isAdmin ? "/adminstatus" : "/status"}><i className="fas fa-glasses"></i> Status View</Link>
-                    <Link to={user.isAdmin ? "/adminservice" : "/service"}><i className="fas fa-glasses"></i> Service View</Link>
-                    <Link to={user.isAdmin ? "/adminrecent" : "/recent"}><i className="fas fa-glasses"></i> Recent View</Link>
-                    {user.isAdmin ? <Link to="/team"><i className="fas fa-glasses"></i> Team View</Link> : ""}
+            <div className="navbar">
+                <div className="dropdown">
+                    { user.loggedIn ? <button id="view-button" className="navItem"><i className="fas fa-bars"></i></button> : ""}
+                    <div className="dropdown-content">
+                        <Link to={user.isAdmin ? "/adminstatus" : "/status"}><i className="fas fa-glasses"></i> Status View</Link>
+                        <Link to={user.isAdmin ? "/adminservice" : "/service"}><i className="fas fa-glasses"></i> Service View</Link>
+                        <Link to={user.isAdmin ? "/adminrecent" : "/recent"}><i className="fas fa-glasses"></i> Recent View</Link>
+                        {user.isAdmin ? <Link to="/team"><i className="fas fa-glasses"></i> Team View</Link> : ""}
+                    </div>
                 </div>
+                <a className="navItem" href="/"><i className="fas fa-home"></i> Home</a>
+                <p className="navItem" id="time">{time}</p>
+                {!user.loggedIn ? <a className="navItem" href="/login" ><i className="fas fa-sign-in-alt"> Login</i></a> : <a className="navItem" href="/" ><i className="fas fa-sign-in-alt"> Logout</i></a>}
             </div>
-            <a className="navItem" href="/"><i className="fas fa-home"></i> Home</a>
-            <p className="navItem" id="time">{time}</p>
-            {user.loggedIn ? <a className="navItem" href="/login" ><i className="fas fa-sign-in-alt"> Login</i></a> : <a className="navItem" href="/" ><i className="fas fa-sign-in-alt"> Logout</i></a>}
-        </div>
         </div>
         
     )
