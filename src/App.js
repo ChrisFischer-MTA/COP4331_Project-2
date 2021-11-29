@@ -19,18 +19,19 @@ import NotFound from './routes/NotFound';
 
 export default function App() {
     return (
-        <div className="app">
-                <BrowserRouter>
-                <NavBar />
-                    <Routes>
-						<Route path="/" element={<Home />} />
-						<Route path="/status" element={<Status />} />
-						<Route path="/recent" element={<Recent />} />
-						<Route path="/team" element={<Team />} />
-						<Route path='*' element={<NotFound/>} />
-                    </Routes>
-                </BrowserRouter>
-        </div>
+      <div className="app">
+        <BrowserRouter>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/status" element={<Status />} />
+            <Route path="/recent" element={<Recent />} />
+            <Route path="/service" element={<Service />} />
+            <Route path="/team" element={<Team />} />
+            <Route path='*' element={<NotFound/>} />
+          </Routes>
+        </BrowserRouter>
+      </div>
 
     )
 
